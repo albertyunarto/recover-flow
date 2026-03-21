@@ -4,7 +4,8 @@ import { useState, useTransition, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { logMeal, addCustomFood } from "@/lib/actions/nutrition";
 import { initFoodSearch, searchFoods } from "@/lib/utils/search";
-import { Search, Clock, UtensilsCrossed, Plus } from "lucide-react";
+import { Search, Clock, UtensilsCrossed, Plus, Sparkles } from "lucide-react";
+import { AIMealInput } from "@/components/nutrition/ai-meal-input";
 import type { FoodItem, CustomFood, MealType } from "@/types";
 
 // Inline a small set of quick-add hawker templates
@@ -24,7 +25,7 @@ const QUICK_ADD: FoodItem[] = [
   { id: "greek-yogurt", name: "Greek Yogurt", category: "dairy", calories: 130, protein_g: 15, carbs_g: 8, fat_g: 4, serving_size: "170g", tags: [] },
 ];
 
-type Tab = "hawker" | "search" | "custom";
+type Tab = "ai" | "hawker" | "search" | "custom";
 
 interface RecentMeal {
   food_name: string;
@@ -41,7 +42,7 @@ export function MealLogger({
   recentMeals: RecentMeal[];
   customFoods: CustomFood[];
 }) {
-  const [tab, setTab] = useState<Tab>("hawker");
+  const [tab, setTab] = useState<Tab>("ai");
   const [mealType, setMealType] = useState<MealType>("lunch");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<FoodItem[]>([]);
@@ -180,6 +181,7 @@ export function MealLogger({
       {/* Tab Selector */}
       <div className="flex rounded-lg bg-muted p-1">
         {[
+          { key: "ai" as Tab, label: "AI", icon: Sparkles },
           { key: "hawker" as Tab, label: "SG Hawker", icon: UtensilsCrossed },
           { key: "search" as Tab, label: "Search", icon: Search },
           { key: "custom" as Tab, label: "Custom", icon: Plus },
@@ -198,6 +200,9 @@ export function MealLogger({
           </button>
         ))}
       </div>
+
+      {/* AI Tab */}
+      {tab === "ai" && <AIMealInput mealType={mealType} />}
 
       {/* Hawker Tab */}
       {tab === "hawker" && (

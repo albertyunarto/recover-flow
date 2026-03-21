@@ -108,6 +108,18 @@ export async function getTodaysNutrition() {
   return { entries: items, totals };
 }
 
+export async function estimateMealNutrition(description: string) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return { error: "Not authenticated" };
+
+  const { parseNutritionFromText } = await import("@/lib/ai/gemini");
+  return parseNutritionFromText(description);
+}
+
 export async function getRecentMeals() {
   const supabase = await createClient();
   const {

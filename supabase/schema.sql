@@ -75,7 +75,7 @@ CREATE TABLE nutrition_entries (
   protein_g int DEFAULT 0,
   carbs_g int DEFAULT 0,
   fat_g int DEFAULT 0,
-  source text DEFAULT 'custom' CHECK (source IN ('template','database','custom','recent')),
+  source text DEFAULT 'custom' CHECK (source IN ('template','database','custom','recent','ai')),
   source_id text,
   created_at timestamptz DEFAULT now()
 );

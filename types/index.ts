@@ -79,7 +79,7 @@ export interface NutritionEntry {
   protein_g: number;
   carbs_g: number;
   fat_g: number;
-  source: "template" | "database" | "custom" | "recent";
+  source: "template" | "database" | "custom" | "recent" | "ai";
   source_id: string | null;
   created_at: string;
 }
@@ -94,6 +94,16 @@ export interface CustomFood {
   fat_g: number;
   category: string | null;
   created_at: string;
+}
+
+export interface AIParsedFoodItem {
+  food_name: string;
+  calories: number;
+  protein_g: number;
+  carbs_g: number;
+  fat_g: number;
+  serving_size: string;
+  confidence: "high" | "medium" | "low";
 }
 
 export interface WeightEntry {
