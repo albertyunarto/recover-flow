@@ -1,0 +1,229 @@
+{
+  "plans": [
+    {
+      "id": "hawker-balanced",
+      "name": "Hawker Balanced",
+      "description": "Classic Singapore hawker meals with a high-protein breakfast to hit daily targets.",
+      "meals": [
+        {
+          "type": "breakfast",
+          "food_id": "overnight-oats",
+          "food_name": "Overnight Oats with Greek Yogurt and Banana",
+          "calories": 380,
+          "protein_g": 25
+        },
+        {
+          "type": "lunch",
+          "food_id": "sliced-fish-soup",
+          "food_name": "Sliced Fish Soup with Bee Hoon",
+          "calories": 340,
+          "protein_g": 35
+        },
+        {
+          "type": "dinner",
+          "food_id": "economy-rice-healthy",
+          "food_name": "Economy Rice (1 meat, 2 veg)",
+          "calories": 520,
+          "protein_g": 28
+        },
+        {
+          "type": "snack",
+          "food_id": "greek-yogurt",
+          "food_name": "Greek Yogurt + Protein Bar",
+          "calories": 340,
+          "protein_g": 37
+        }
+      ],
+      "total_calories": 1580,
+      "total_protein_g": 125,
+      "notes": "Add a second protein shake post-workout to push closer to 140g protein target."
+    },
+    {
+      "id": "meal-prep-friendly",
+      "name": "Meal Prep Champion",
+      "description": "Batch-cook friendly plan using grilled chicken and brown rice. Minimal hawker reliance.",
+      "meals": [
+        {
+          "type": "breakfast",
+          "food_id": "protein-overnight-oats-chia",
+          "food_name": "Chia Seed Overnight Oats with Protein Powder",
+          "calories": 420,
+          "protein_g": 32
+        },
+        {
+          "type": "lunch",
+          "food_id": "chicken-breast-grilled",
+          "food_name": "Grilled Chicken Breast + Brown Rice + Kai Lan",
+          "calories": 426,
+          "protein_g": 38
+        },
+        {
+          "type": "dinner",
+          "food_id": "salmon-fillet",
+          "food_name": "Baked Salmon Fillet + Sweet Potato + Broccoli",
+          "calories": 465,
+          "protein_g": 39
+        },
+        {
+          "type": "snack-1",
+          "food_id": "protein-shake",
+          "food_name": "Whey Protein Shake",
+          "calories": 140,
+          "protein_g": 25
+        },
+        {
+          "type": "snack-2",
+          "food_id": "mixed-nuts",
+          "food_name": "Mixed Nuts + Banana",
+          "calories": 275,
+          "protein_g": 6
+        }
+      ],
+      "total_calories": 1726,
+      "total_protein_g": 140,
+      "notes": "Adjust rice portion size to fine-tune calories. Great for run days."
+    },
+    {
+      "id": "hawker-high-protein",
+      "name": "Hawker High Protein",
+      "description": "Higher protein choices from hawker centres. Smart ordering strategy.",
+      "meals": [
+        {
+          "type": "breakfast",
+          "food_id": "egg-soft-boiled",
+          "food_name": "Kaya Toast Set + Extra Soft-Boiled Eggs (4 eggs total)",
+          "calories": 450,
+          "protein_g": 22
+        },
+        {
+          "type": "lunch",
+          "food_id": "ban-mian",
+          "food_name": "Ban Mian (Hand-made Noodle Soup, extra egg)",
+          "calories": 470,
+          "protein_g": 30
+        },
+        {
+          "type": "snack",
+          "food_id": "protein-shake",
+          "food_name": "Whey Protein Shake + Banana",
+          "calories": 245,
+          "protein_g": 26
+        },
+        {
+          "type": "dinner",
+          "food_id": "chicken-rice",
+          "food_name": "Hainanese Chicken Rice (steamed chicken, request extra meat)",
+          "calories": 607,
+          "protein_g": 32
+        },
+        {
+          "type": "snack-2",
+          "food_id": "greek-yogurt",
+          "food_name": "Greek Yogurt with Blueberries",
+          "calories": 160,
+          "protein_g": 18
+        }
+      ],
+      "total_calories": 1932,
+      "total_protein_g": 128,
+      "notes": "Opt for steamed over roasted chicken at chicken rice stall for leaner option."
+    },
+    {
+      "id": "recovery-day",
+      "name": "Recovery Day — Light and Clean",
+      "description": "Lower calorie day for rest days. Easy on digestion, anti-inflammatory focus.",
+      "meals": [
+        {
+          "type": "breakfast",
+          "food_id": "oatmeal",
+          "food_name": "Oatmeal with Greek Yogurt, Berries, and Nuts",
+          "calories": 383,
+          "protein_g": 23
+        },
+        {
+          "type": "lunch",
+          "food_id": "yong-tau-foo-soup",
+          "food_name": "Yong Tau Foo Soup (8 items, bee hoon, no fried items)",
+          "calories": 310,
+          "protein_g": 20
+        },
+        {
+          "type": "snack",
+          "food_id": "mixed-nuts",
+          "food_name": "Almonds + Canned Tuna on Rice Cakes",
+          "calories": 344,
+          "protein_g": 31
+        },
+        {
+          "type": "dinner",
+          "food_id": "chicken-porridge",
+          "food_name": "Chicken Congee + Extra Lean Protein Side",
+          "calories": 450,
+          "protein_g": 36
+        },
+        {
+          "type": "snack-2",
+          "food_id": "coconut-water",
+          "food_name": "Young Coconut Water",
+          "calories": 60,
+          "protein_g": 1
+        }
+      ],
+      "total_calories": 1547,
+      "total_protein_g": 111,
+      "notes": "Rest day calories are lower. Add a protein bar if feeling underfuelled. Coconut water aids electrolyte repletion."
+    },
+    {
+      "id": "run-day-performance",
+      "name": "Run Day Performance",
+      "description": "Higher carb intake to fuel training sessions. Timed around workout.",
+      "meals": [
+        {
+          "type": "breakfast",
+          "food_id": "overnight-oats",
+          "food_name": "Overnight Oats + Banana + Honey",
+          "calories": 450,
+          "protein_g": 22
+        },
+        {
+          "type": "pre-run-snack",
+          "food_id": "banana",
+          "food_name": "Banana (30-45 min before run)",
+          "calories": 105,
+          "protein_g": 1
+        },
+        {
+          "type": "post-run-shake",
+          "food_id": "protein-shake",
+          "food_name": "Whey Protein Shake + Milo",
+          "calories": 300,
+          "protein_g": 30
+        },
+        {
+          "type": "lunch",
+          "food_id": "nasi-biryani-chicken",
+          "food_name": "Chicken Biryani (post-run lunch)",
+          "calories": 710,
+          "protein_g": 36
+        },
+        {
+          "type": "dinner",
+          "food_id": "economy-rice-healthy",
+          "food_name": "Economy Rice (1 meat, 2 veg)",
+          "calories": 520,
+          "protein_g": 28
+        },
+        {
+          "type": "snack",
+          "food_id": "greek-yogurt",
+          "food_name": "Greek Yogurt with Fruit",
+          "calories": 160,
+          "protein_g": 17
+        }
+      ],
+      "total_calories": 2245,
+      "total_protein_g": 134,
+      "notes": "Run day calories are higher — this is intentional. The extra carbs from biryani refuel muscle glycogen. Scale back dinner rice to reduce calories if needed."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "title": "24-Week Recovery Plan",
+  "subtitle": "Cervical Spondylosis (C5-6) + Lateral Epicondylitis + Weight Loss + Couch to 5K",
+  "the_c6_connection": {
+    "title": "The C6 Connection — Why Your Neck and Elbow Are Linked",
+    "content": "Your cervical spondylosis at C5-6 compresses the C6 nerve root, which controls the wrist extensors — the same muscles affected in lateral epicondylitis (tennis elbow). This means your elbow pain isn't isolated; it's part of a kinetic chain that starts at your neck. That's why this plan treats both simultaneously: decompress the nerve root through cervical exercises, while directly rehabilitating the elbow tendon. As cervical symptoms improve, you'll likely see elbow pain reduce too."
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Foundation",
+      "weeks": "Weeks 1–6",
+      "focus": "Pain reduction, mobility, habit formation",
+      "principles": [
+        "Never push through sharp or radiating pain",
+        "Consistency over intensity — daily gentle work beats occasional hard sessions",
+        "Build the habit of daily exercise, pain logging, and nutrition tracking",
+        "Walking is the only cardio — no running until Phase 2"
+      ],
+      "protocols": ["Cervical (daily, 15 min)", "Elbow (daily, 10 min)", "Core (3×/week, 10 min)", "Lower Body (3×/week, 15 min)", "Foot (daily, 5 min)"],
+      "nutrition": "Moderate deficit: ~1,850 kcal/day, 140g protein. Focus on whole foods, SG hawker-friendly options.",
+      "avoid": ["Running or high-impact activity", "Overhead pressing or heavy lifting", "Neck extension stretches (looking up forcefully)", "Gripping heavy objects with left hand", "Sitting >45 min without a posture break"]
+    },
+    {
+      "phase": 2,
+      "name": "Build",
+      "weeks": "Weeks 7–12",
+      "focus": "Run-walk introduction, progressive exercise loading",
+      "principles": [
+        "Run-walk intervals start small — respect the 10% weekly increase rule",
+        "Monitor pain after every run session",
+        "Progress exercises to add resistance",
+        "Weight loss should continue at 0.5–1 kg/week"
+      ],
+      "protocols": ["Cervical (daily, upgraded)", "Elbow (daily, with dumbbell)", "Core (3×/week, progressed)", "Lower Body (3×/week, with lunges)", "Run-Walk (3×/week, 25–30 min)"],
+      "nutrition": "Continue deficit. Slightly higher carbs on run days for energy."
+    },
+    {
+      "phase": 3,
+      "name": "Advance",
+      "weeks": "Weeks 13–18",
+      "focus": "Longer runs, maintenance rehab, strength building",
+      "principles": [
+        "Rehab moves to maintenance frequency (2×/week)",
+        "Running becomes the primary physical activity",
+        "Include one deload week (Week 13)",
+        "Focus on running form and enjoyment"
+      ],
+      "protocols": ["Cervical (2×/week)", "Elbow (2×/week)", "Core (3×/week, advanced)", "Lower Body (3×/week, strength)", "Running (3×/week, 20–30 min)"],
+      "nutrition": "Approaching target weight. May slightly increase calories if energy is low on heavy run days."
+    },
+    {
+      "phase": 4,
+      "name": "5K Ready",
+      "weeks": "Weeks 19–24",
+      "focus": "Continuous running, performance, goal achievement",
+      "principles": [
+        "Build to 30-minute continuous run",
+        "Rehab is maintenance only (1×/week)",
+        "Include a deload at Week 20",
+        "Celebrate — you're running!"
+      ],
+      "protocols": ["Cervical (1×/week)", "Elbow (1×/week)", "Core (3×/week, running-specific)", "Lower Body (3×/week, plyometrics)", "Running (3×/week, 15–30 min continuous)"],
+      "nutrition": "At or near target weight (77 kg). Transition to maintenance calories if goal reached."
+    }
+  ],
+  "warning_signs": [
+    { "sign": "Sharp shooting pain down the arm", "action": "STOP immediately. This suggests nerve compression. Contact physio." },
+    { "sign": "Numbness or tingling in fingers", "action": "Stop the current exercise. If it persists >30 min, contact doctor." },
+    { "sign": "Pain that worsens after exercise (not just during)", "action": "Reduce intensity next session. If it continues 3+ days, see physio." },
+    { "sign": "Neck pain >7/10 that doesn't ease with rest", "action": "Skip exercises for that day. If it persists 48 hours, see doctor." },
+    { "sign": "Knee pain during or after running", "action": "Stop running. Return to walking. May need gait re-assessment." },
+    { "sign": "Any new symptoms (dizziness, headaches, balance issues)", "action": "Stop all exercises. See doctor before continuing." }
+  ],
+  "ergonomic_checklist": [
+    "Monitor at eye level (use laptop stand + external keyboard)",
+    "Feet flat on floor or footrest",
+    "Elbows at 90° when typing",
+    "Take posture break every 30 minutes (5 chin tucks + 5 shoulder rolls)",
+    "Use vertical mouse to reduce wrist extension",
+    "Keep frequently used items within easy reach (no overhead reaching)"
+  ]
+}

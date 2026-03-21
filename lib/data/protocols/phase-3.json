@@ -1,0 +1,231 @@
+{
+  "protocols": [
+    {
+      "protocol": "cervical",
+      "phase": 3,
+      "frequency": "2x_week",
+      "duration_minutes": 20,
+      "exercises": [
+        {
+          "id": "chin-tucks",
+          "name": "Chin Tucks",
+          "sets": 3, "reps": 15, "hold_sec": 5,
+          "form_cue": "Sit tall. Draw chin straight back. Feel stretch at skull base. Maintenance dose — quality over volume.",
+          "why": "Maintenance of C5-6 decompression gains from Phases 1-2."
+        },
+        {
+          "id": "iso-flexion",
+          "name": "Isometric Neck Flexion",
+          "sets": 3, "reps": 10, "hold_sec": 10,
+          "form_cue": "Press forehead into palm. Resist firmly. Hold 10 sec. Maintenance dose.",
+          "why": "Preserves deep cervical flexor strength at maintenance frequency."
+        },
+        {
+          "id": "iso-extension",
+          "name": "Isometric Neck Extension",
+          "sets": 3, "reps": 10, "hold_sec": 10,
+          "form_cue": "Press back of head into palm. Resist firmly. Hold 10 sec.",
+          "why": "Preserves posterior cervical strength at maintenance frequency."
+        },
+        {
+          "id": "neck-lateral-flex-strength",
+          "name": "Neck Lateral Flexion Strengthening",
+          "sets": 3, "reps": 10, "hold_sec": 7,
+          "form_cue": "Sit tall. Press side of head into palm. Resist — don't let head move. Hold 7 sec each side.",
+          "why": "Maintenance of lateral cervical stabilizer balance."
+        },
+        {
+          "id": "band-neck-flexion",
+          "name": "Resistance Band Neck Flexion",
+          "sets": 3, "reps": 12, "hold_sec": 0,
+          "form_cue": "Anchor band behind head at eye level. Stand facing anchor. Place band around forehead. Nod chin to chest against band resistance. Slow and controlled.",
+          "why": "Dynamic resistance band loading builds cervical flexor strength through full range — more functional than isometrics."
+        },
+        {
+          "id": "band-neck-extension",
+          "name": "Resistance Band Neck Extension",
+          "sets": 3, "reps": 12, "hold_sec": 0,
+          "form_cue": "Anchor band in front at eye level. Stand facing away. Place band across forehead. Extend neck back against band resistance. Slow return.",
+          "why": "Progressive resistance band extension strengthens posterior cervical musculature dynamically."
+        },
+        {
+          "id": "thoracic-rotation",
+          "name": "Thoracic Rotation",
+          "sets": 3, "reps": 12, "hold_sec": 3,
+          "form_cue": "Sit on chair, cross arms on chest. Rotate thoracic spine left and right. Keep hips facing forward. Hold end range 3 sec. Full range of motion.",
+          "why": "Maintenance thoracic mobility to support cervical mechanics during running."
+        },
+        {
+          "id": "upper-trap-stretch",
+          "name": "Upper Trapezius Stretch",
+          "sets": 2, "reps": 1, "hold_sec": 30,
+          "form_cue": "Tilt head away from tight side. Gentle hand overpressure. Maintenance dose — both sides equally.",
+          "why": "Maintenance flexibility as running volume increases."
+        }
+      ]
+    },
+    {
+      "protocol": "elbow",
+      "phase": 3,
+      "frequency": "2x_week",
+      "duration_minutes": 15,
+      "exercises": [
+        {
+          "id": "wrist-ext-stretch",
+          "name": "Wrist Extensor Stretch",
+          "sets": 2, "reps": 1, "hold_sec": 30,
+          "form_cue": "Straighten left arm, palm down. Use right hand to gently press hand down. Maintenance dose.",
+          "why": "Maintenance flexibility of the common extensor tendon."
+        },
+        {
+          "id": "eccentric-wrist-ext-heavy",
+          "name": "Eccentric Wrist Extensions (Heavier Loading)",
+          "sets": 3, "reps": 15, "hold_sec": 0,
+          "weight_kg": "3-4",
+          "form_cue": "Rest forearm on table, wrist over edge, palm down. Hold 3-4kg dumbbell. Use other hand to assist raising wrist up. Slowly lower under control (4-5 sec). Full range.",
+          "why": "Heavy eccentric loading in Phase 3 drives maximum tendon remodeling and strength gains. Research supports 3-4kg for maintenance-phase lateral epicondylitis."
+        },
+        {
+          "id": "wrist-curls",
+          "name": "Wrist Curls",
+          "sets": 3, "reps": 15, "hold_sec": 0,
+          "weight_kg": "2-3",
+          "form_cue": "Rest forearm on table, wrist over edge, palm up. Hold 2-3kg dumbbell. Curl wrist up (2 sec) and lower (3 sec). Full range.",
+          "why": "Progressive flexor strengthening to balance the heavier eccentric loading."
+        },
+        {
+          "id": "band-wrist-ext",
+          "name": "Band Wrist Extensions",
+          "sets": 3, "reps": 15, "hold_sec": 0,
+          "form_cue": "Anchor resistance band under foot (use stronger band than Phase 2). Hold band end, palm down. Extend wrist up against band resistance. Slow return.",
+          "why": "Heavier band resistance for progressive tendon loading maintenance."
+        },
+        {
+          "id": "supination-pronation",
+          "name": "Forearm Supination/Pronation",
+          "sets": 3, "reps": 15, "hold_sec": 0,
+          "weight_kg": "1-2",
+          "form_cue": "Hold 1-2kg dumbbell. Slowly rotate forearm palm-up then palm-down. Keep elbow at side.",
+          "why": "Maintenance rotator strength at 2x/week frequency."
+        },
+        {
+          "id": "grip-squeeze",
+          "name": "Grip Squeezes (Firm Resistance)",
+          "sets": 3, "reps": 15, "hold_sec": 5,
+          "form_cue": "Squeeze a firm grip trainer or tennis ball. Hold 5 sec. Release. Maintenance dose.",
+          "why": "Grip strength maintenance for day-to-day function and running arm swing."
+        }
+      ]
+    },
+    {
+      "protocol": "core",
+      "phase": 3,
+      "frequency": "3x_week",
+      "duration_minutes": 20,
+      "exercises": [
+        {
+          "id": "full-plank",
+          "name": "Full Plank (Extended)",
+          "sets": 3, "reps": 1, "hold_sec": 45,
+          "form_cue": "Forearms on floor, elbows under shoulders. Body in a straight line from head to heel. Brace core hard. Hold 45-60 sec. No sagging hips.",
+          "why": "Full plank progresses from shorter holds — builds the anterior core endurance required for maintaining posture in longer runs."
+        },
+        {
+          "id": "side-plank",
+          "name": "Side Planks (Extended)",
+          "sets": 3, "reps": 1, "hold_sec": 30,
+          "form_cue": "Lie on side, elbow under shoulder. Lift hips. Hold 30-40 sec each side. Optionally raise top leg for progression.",
+          "why": "Lateral core endurance for preventing pelvic drop during sustained running."
+        },
+        {
+          "id": "anti-rotation-press",
+          "name": "Anti-Rotation Press",
+          "sets": 3, "reps": 12, "hold_sec": 2,
+          "form_cue": "Stand sideways to band anchor. Hold band at chest with both hands. Press straight out, hold 2 sec, return. Core stays STILL — do not rotate. Both sides.",
+          "why": "Anti-rotation strength directly transfers to running — prevents trunk rotation wasted energy and protects lumbar spine."
+        },
+        {
+          "id": "dead-bug-alternating",
+          "name": "Dead Bugs (Alternating) — Slow Tempo",
+          "sets": 3, "reps": 15, "hold_sec": 0,
+          "form_cue": "Lie on back, arms up, knees at 90°. Extend opposite arm and leg fully. 3 sec out, 1 sec hold, 3 sec return. Breathe out as you extend. Back stays FLAT.",
+          "why": "Slow tempo dead bugs under fatigue build the deep stabilizer endurance critical for late-run posture."
+        },
+        {
+          "id": "tgu-prep",
+          "name": "Turkish Get-Up Prep (Half Get-Up)",
+          "sets": 3, "reps": 5, "hold_sec": 0,
+          "weight_kg": "0",
+          "form_cue": "Lie on back, right arm pointing to ceiling. Roll to left elbow, then left hand, then press to seated. Reverse the movement. Keep arm pointing straight up throughout. No weight until movement is perfect.",
+          "why": "Turkish get-up prep builds full-body integrated stability and shoulder control — key movement quality exercise for Phase 3."
+        },
+        {
+          "id": "glute-bridge-marching",
+          "name": "Glute Bridge March",
+          "sets": 3, "reps": 20, "hold_sec": 0,
+          "form_cue": "Maintain bridge position. Alternately lift one knee toward chest (march). Keep hips level and stable. Don't let hips drop.",
+          "why": "Dynamic glute bridge variation trains hip flexor/extensor coordination while maintaining core and glute activation — running-specific."
+        }
+      ]
+    },
+    {
+      "protocol": "lower_body",
+      "phase": 3,
+      "frequency": "3x_week",
+      "duration_minutes": 25,
+      "exercises": [
+        {
+          "id": "goblet-squat",
+          "name": "Goblet Squats",
+          "sets": 4, "reps": 12, "hold_sec": 0,
+          "weight_kg": "8-16",
+          "form_cue": "Hold dumbbell or kettlebell at chest with both hands (goblet). Feet shoulder-width. Sit deep into squat, elbows track inside knees. Drive up through heels. Chest tall.",
+          "why": "Loaded squats build the quad, glute, and trunk strength foundation for injury-free running. Goblet position promotes upright posture."
+        },
+        {
+          "id": "bulgarian-split-squat",
+          "name": "Bulgarian Split Squats",
+          "sets": 3, "reps": 10, "hold_sec": 0,
+          "form_cue": "Rear foot on bench/chair behind you. Front foot forward. Lower rear knee toward floor. Front knee tracks over toes. Hold dumbbells for resistance. 10 reps each leg.",
+          "why": "The most effective unilateral leg exercise for running. Builds single-leg strength, hip flexor flexibility, and glute power simultaneously."
+        },
+        {
+          "id": "heavy-calf-raises",
+          "name": "Calf Raises — Heavy Loading",
+          "sets": 4, "reps": 15, "hold_sec": 2,
+          "form_cue": "Hold dumbbells (5-10kg total). Stand on edge of step. Rise up on toes, hold 2 sec, slowly lower below step (3 sec). Both legs. Progress to single-leg when ready.",
+          "why": "Heavy calf loading in Phase 3 builds the strength required for the 3-4x bodyweight calf forces during running."
+        },
+        {
+          "id": "single-leg-deadlift",
+          "name": "Single-Leg Deadlifts (Loaded)",
+          "sets": 3, "reps": 10, "hold_sec": 0,
+          "weight_kg": "5-10",
+          "form_cue": "Hold dumbbell in opposite hand to standing leg. Hinge forward at hip, extending free leg behind. Keep back flat. Lower until you feel hamstring stretch. Return.",
+          "why": "Progressive eccentric hamstring loading with resistance — prevents hamstring injuries in returning runners."
+        },
+        {
+          "id": "box-jump-prep",
+          "name": "Box Jump Preparation — Broad Jumps",
+          "sets": 3, "reps": 6, "hold_sec": 3,
+          "form_cue": "Stand tall. Swing arms back, bend knees, then drive arms forward and jump horizontally. Absorb landing softly — land through toes to midfoot, then heel. Hold landing 3 sec. Start small distance.",
+          "why": "Broad jumps prepare the neuromuscular system for impact absorption — a prerequisite before increasing run pace or adding intervals."
+        },
+        {
+          "id": "lateral-band-walks",
+          "name": "Lateral Band Walks (Stronger Band)",
+          "sets": 3, "reps": 20, "hold_sec": 0,
+          "form_cue": "Place resistance band around ankles (stronger band than Phase 2). Slight squat position. Step sideways keeping tension. 20 steps each direction.",
+          "why": "Progressive hip abductor loading for lateral knee stability during longer runs."
+        },
+        {
+          "id": "hip-flexor-stretch",
+          "name": "Hip Flexor Stretch",
+          "sets": 2, "reps": 1, "hold_sec": 30,
+          "form_cue": "Half-kneeling position with overhead reach. Push hips forward, squeeze glute of back leg. Maintenance dose.",
+          "why": "Continued hip flexor flexibility as running volume significantly increases."
+        }
+      ]
+    }
+  ]
+}

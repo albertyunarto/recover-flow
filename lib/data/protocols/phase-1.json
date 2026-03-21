@@ -1,0 +1,212 @@
+{
+  "protocols": [
+    {
+      "protocol": "cervical",
+      "phase": 1,
+      "frequency": "daily",
+      "duration_minutes": 15,
+      "exercises": [
+        {
+          "id": "iso-flexion",
+          "name": "Isometric Neck Flexion",
+          "sets": 3, "reps": 10, "hold_sec": 7,
+          "form_cue": "Press forehead into palm. Resist — don't let head move. Hold 5-10 sec.",
+          "why": "Strengthens deep cervical flexors without moving the spine — safe for disc protrusion."
+        },
+        {
+          "id": "iso-extension",
+          "name": "Isometric Neck Extension",
+          "sets": 3, "reps": 10, "hold_sec": 7,
+          "form_cue": "Press back of head into palm. Resist evenly. Hold 5-10 sec.",
+          "why": "Builds posterior cervical strength to support the C5-6 segment."
+        },
+        {
+          "id": "chin-tucks",
+          "name": "Chin Tucks",
+          "sets": 3, "reps": 15, "hold_sec": 5,
+          "form_cue": "Sit tall. Draw chin straight back (double chin). Feel stretch at skull base. Do NOT tilt head down.",
+          "why": "THE #1 exercise for C5-6 disc protrusion. Opens the intervertebral foramen by 7-13%, decompressing the C6 nerve root."
+        },
+        {
+          "id": "chin-tuck-overpressure",
+          "name": "Cervical Retraction with Overpressure",
+          "sets": 3, "reps": 10, "hold_sec": 3,
+          "form_cue": "Perform chin tuck, then use fingertips to gently push chin further back. Hold 3 sec.",
+          "why": "Active decompression of the C5-6 foramen — the advanced chin tuck."
+        },
+        {
+          "id": "scapular-squeeze",
+          "name": "Scapular Squeezes",
+          "sets": 3, "reps": 15, "hold_sec": 5,
+          "form_cue": "Pinch shoulder blades together and DOWN. Hold 5 sec. Don't shrug.",
+          "why": "Addresses upper back trigger points and supports the cervical-elbow kinetic chain."
+        },
+        {
+          "id": "prone-ytw",
+          "name": "Prone Y-T-W Raises",
+          "sets": 2, "reps": 8, "hold_sec": 3,
+          "form_cue": "Face-down on bed, arms hanging off edge. Raise arms into Y, then T, then W. Thumbs up. Light or no weight.",
+          "why": "Scapular stabilizer activation — reduces compensatory tension causing trigger points."
+        },
+        {
+          "id": "upper-trap-stretch",
+          "name": "Upper Trapezius Stretch",
+          "sets": 3, "reps": 1, "hold_sec": 30,
+          "form_cue": "Tilt head away from tight side. Gentle hand overpressure. STOP if radiating pain. Focus on LEFT side.",
+          "why": "Releases the dominant left-sided trigger points identified in your referral."
+        }
+      ]
+    },
+    {
+      "protocol": "elbow",
+      "phase": 1,
+      "frequency": "daily",
+      "duration_minutes": 10,
+      "exercises": [
+        {
+          "id": "wrist-ext-stretch",
+          "name": "Wrist Extensor Stretch",
+          "sets": 3, "reps": 1, "hold_sec": 30,
+          "form_cue": "Straighten left arm, palm down. Use right hand to gently press hand down. Feel stretch on outer forearm.",
+          "why": "Stretches the common extensor tendon at the lateral epicondyle — the primary site of tennis elbow pain."
+        },
+        {
+          "id": "wrist-flex-stretch",
+          "name": "Wrist Flexor Stretch",
+          "sets": 3, "reps": 1, "hold_sec": 30,
+          "form_cue": "Straighten left arm, palm up. Use right hand to press fingers back toward you.",
+          "why": "Balances the forearm musculature and reduces tension through the elbow joint."
+        },
+        {
+          "id": "eccentric-wrist-ext",
+          "name": "Eccentric Wrist Extensions",
+          "sets": 3, "reps": 15, "hold_sec": 0,
+          "form_cue": "Rest forearm on table, wrist over edge, palm down. Use other hand to lift wrist up. Slowly lower under control (3 sec). Start with no weight.",
+          "why": "The gold standard for lateral epicondylitis rehab. Eccentric loading stimulates tendon healing and remodeling."
+        },
+        {
+          "id": "supination-pronation",
+          "name": "Forearm Supination/Pronation",
+          "sets": 3, "reps": 15, "hold_sec": 0,
+          "form_cue": "Hold light object (hammer handle). Slowly rotate forearm palm-up then palm-down. Keep elbow at side.",
+          "why": "Strengthens the rotator muscles of the forearm that support the lateral epicondyle."
+        },
+        {
+          "id": "grip-squeeze",
+          "name": "Gentle Grip Squeezes",
+          "sets": 3, "reps": 15, "hold_sec": 3,
+          "form_cue": "Squeeze a soft ball or rolled towel. Hold 3 sec. Release. No pain allowed during this exercise.",
+          "why": "Maintains grip strength while respecting the healing tendon. Pain-free grip work promotes blood flow."
+        }
+      ]
+    },
+    {
+      "protocol": "core",
+      "phase": 1,
+      "frequency": "3x_week",
+      "duration_minutes": 10,
+      "exercises": [
+        {
+          "id": "dead-bug",
+          "name": "Dead Bugs",
+          "sets": 3, "reps": 10, "hold_sec": 0,
+          "form_cue": "Lie on back, arms up, knees at 90°. Slowly extend opposite arm and leg. Keep lower back pressed to floor.",
+          "why": "Safe core activation that doesn't load the cervical spine. Builds the deep stabilizers."
+        },
+        {
+          "id": "bird-dog",
+          "name": "Bird Dogs",
+          "sets": 3, "reps": 10, "hold_sec": 5,
+          "form_cue": "On all fours, extend opposite arm and leg. Hold 5 sec. Keep hips level — don't rotate.",
+          "why": "Trains the posterior chain and anti-rotation stability without spinal compression."
+        },
+        {
+          "id": "glute-bridge",
+          "name": "Glute Bridges",
+          "sets": 3, "reps": 15, "hold_sec": 3,
+          "form_cue": "Lie on back, feet flat, hip-width. Push hips up by squeezing glutes. Hold 3 sec at top.",
+          "why": "Glute activation reduces compensatory loading through the lower back and supports future running."
+        },
+        {
+          "id": "pallof-hold",
+          "name": "Pallof Hold (Band)",
+          "sets": 3, "reps": 1, "hold_sec": 20,
+          "form_cue": "Stand sideways to anchor. Press band straight out from chest. Hold — resist rotation. 20 sec each side.",
+          "why": "Anti-rotation strength is critical for running mechanics and spinal stability."
+        }
+      ]
+    },
+    {
+      "protocol": "lower_body",
+      "phase": 1,
+      "frequency": "3x_week",
+      "duration_minutes": 15,
+      "exercises": [
+        {
+          "id": "bodyweight-squat",
+          "name": "Bodyweight Squats",
+          "sets": 3, "reps": 15, "hold_sec": 0,
+          "form_cue": "Feet shoulder-width. Sit back and down. Knees track over toes. Chest up. Go as low as comfortable.",
+          "why": "Foundation movement for running. Builds quad, glute, and ankle strength."
+        },
+        {
+          "id": "step-ups",
+          "name": "Step-Ups",
+          "sets": 3, "reps": 12, "hold_sec": 0,
+          "form_cue": "Use a sturdy step (15-20cm). Step up with one foot, drive through heel. Alternate legs.",
+          "why": "Unilateral leg strength mimics running mechanics. Identifies left/right imbalances."
+        },
+        {
+          "id": "calf-raises",
+          "name": "Calf Raises",
+          "sets": 3, "reps": 20, "hold_sec": 2,
+          "form_cue": "Stand on edge of step. Rise up on toes, hold 2 sec, slowly lower below step level.",
+          "why": "Calf strength is the #1 predictor of running injury resilience. 20 reps builds endurance."
+        },
+        {
+          "id": "hip-flexor-stretch",
+          "name": "Hip Flexor Stretch",
+          "sets": 3, "reps": 1, "hold_sec": 30,
+          "form_cue": "Half-kneeling position. Push hips forward. Squeeze glute of back leg. Feel stretch in front of hip.",
+          "why": "Desk workers have tight hip flexors that inhibit glute activation and alter running gait."
+        },
+        {
+          "id": "single-leg-balance",
+          "name": "Single Leg Balance",
+          "sets": 3, "reps": 1, "hold_sec": 30,
+          "form_cue": "Stand on one leg. Eyes open. Hold 30 sec each side. Progress to eyes closed when stable.",
+          "why": "Proprioception training for ankle stability and fall prevention during running."
+        }
+      ]
+    },
+    {
+      "protocol": "foot",
+      "phase": 1,
+      "frequency": "daily",
+      "duration_minutes": 5,
+      "exercises": [
+        {
+          "id": "toe-curls",
+          "name": "Towel Toe Curls",
+          "sets": 3, "reps": 15, "hold_sec": 0,
+          "form_cue": "Place towel on floor. Scrunch toes to pull towel toward you. Release and repeat.",
+          "why": "Strengthens the intrinsic foot muscles — your natural arch support for running."
+        },
+        {
+          "id": "ankle-circles",
+          "name": "Ankle Circles",
+          "sets": 2, "reps": 15, "hold_sec": 0,
+          "form_cue": "Seated. Lift foot off ground. Draw large circles with toes. 15 clockwise, 15 counter-clockwise each foot.",
+          "why": "Ankle mobility is essential for running. Prevents stiffness that leads to compensatory injuries."
+        },
+        {
+          "id": "short-foot",
+          "name": "Short Foot Exercise",
+          "sets": 3, "reps": 10, "hold_sec": 5,
+          "form_cue": "Seated, foot flat. Try to shorten your foot by pulling ball of foot toward heel WITHOUT curling toes. Hold 5 sec.",
+          "why": "Activates the arch muscles that support midfoot strike running form."
+        }
+      ]
+    }
+  ]
+}

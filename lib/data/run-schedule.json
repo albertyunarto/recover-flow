@@ -1,0 +1,24 @@
+{
+  "schedule": [
+    {"week": 5, "phase": 2, "walk_min": 4, "run_min": 1, "cycles": 5, "total_min": 25, "sessions_per_week": 3},
+    {"week": 6, "phase": 2, "walk_min": 4, "run_min": 1, "cycles": 6, "total_min": 30, "sessions_per_week": 3},
+    {"week": 7, "phase": 2, "walk_min": 3, "run_min": 2, "cycles": 5, "total_min": 25, "sessions_per_week": 3},
+    {"week": 8, "phase": 2, "walk_min": 3, "run_min": 2, "cycles": 6, "total_min": 30, "sessions_per_week": 3},
+    {"week": 9, "phase": 2, "walk_min": 2, "run_min": 3, "cycles": 5, "total_min": 25, "sessions_per_week": 3},
+    {"week": 10, "phase": 2, "walk_min": 2, "run_min": 3, "cycles": 6, "total_min": 30, "sessions_per_week": 3},
+    {"week": 11, "phase": 3, "format": "Walk 2 → Run 4 × 5", "total_run_min": 20, "sessions_per_week": 3},
+    {"week": 12, "phase": 3, "format": "Walk 1.5 → Run 5 × 4", "total_run_min": 20, "sessions_per_week": 3},
+    {"week": 13, "phase": 3, "format": "DELOAD — Week 11 format × 2 sessions", "total_run_min": 16, "sessions_per_week": 2},
+    {"week": 14, "phase": 3, "format": "Walk 1 → Run 8 × 3", "total_run_min": 24, "sessions_per_week": 3},
+    {"week": 15, "phase": 3, "format": "Run 10 → Walk 2 → Run 10", "total_run_min": 20, "sessions_per_week": 3},
+    {"week": 16, "phase": 3, "format": "Run 12 → Walk 2 → Run 10", "total_run_min": 22, "sessions_per_week": 3},
+    {"week": 17, "phase": 4, "format": "Run 15 min × 3", "total_run_min": 45, "sessions_per_week": 3},
+    {"week": 18, "phase": 4, "format": "Run 18 × 2 + Run 15 × 1", "total_run_min": 51, "sessions_per_week": 3},
+    {"week": 19, "phase": 4, "format": "Run 20 × 2 + Run 15 × 1", "total_run_min": 55, "sessions_per_week": 3},
+    {"week": 20, "phase": 4, "format": "DELOAD — Run 15 × 2", "total_run_min": 30, "sessions_per_week": 2},
+    {"week": 21, "phase": 4, "format": "Run 22 × 2 + Run 18 × 1", "total_run_min": 62, "sessions_per_week": 3},
+    {"week": 22, "phase": 4, "format": "Run 25 × 2 + Run 20 × 1", "total_run_min": 70, "sessions_per_week": 3},
+    {"week": 23, "phase": 4, "format": "Run 28 × 2 + Run 20 × 1", "total_run_min": 76, "sessions_per_week": 3},
+    {"week": 24, "phase": 4, "format": "Run 30 min continuous ≈ 5K 🎉", "total_run_min": 30, "sessions_per_week": 1}
+  ]
+}

@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222.2 84% 4.9%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222.2 84% 4.9%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(222.2 84% 4.9%);
+
+  --color-primary: hsl(221 83% 53%);
+  --color-primary-foreground: hsl(210 40% 98%);
+
+  --color-secondary: hsl(210 40% 96.1%);
+  --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
+
+  --color-muted: hsl(210 40% 96.1%);
+  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
+
+  --color-accent: hsl(210 40% 96.1%);
+  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
+
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+
+  --color-success: hsl(142 71% 45%);
+  --color-success-foreground: hsl(0 0% 100%);
+
+  --color-warning: hsl(38 92% 50%);
+  --color-warning-foreground: hsl(0 0% 100%);
+
+  --color-streak: hsl(262 83% 58%);
+  --color-streak-foreground: hsl(0 0% 100%);
+
+  --color-border: hsl(214.3 31.8% 91.4%);
+  --color-input: hsl(214.3 31.8% 91.4%);
+  --color-ring: hsl(221 83% 53%);
+
+  --radius-lg: 0.75rem;
+  --radius-md: calc(var(--radius-lg) - 2px);
+  --radius-sm: calc(var(--radius-lg) - 4px);
+
+  /* Pain level colors */
+  --color-pain-low: hsl(142 71% 45%);
+  --color-pain-mid: hsl(38 92% 50%);
+  --color-pain-high: hsl(0 84% 60%);
+
+  /* Phase colors */
+  --color-phase-1: hsl(221 83% 53%);
+  --color-phase-2: hsl(142 71% 45%);
+  --color-phase-3: hsl(38 92% 50%);
+  --color-phase-4: hsl(262 83% 58%);
+
+  /* Region colors for charts */
+  --color-region-neck: hsl(221 83% 53%);
+  --color-region-back: hsl(262 83% 58%);
+  --color-region-elbow: hsl(38 92% 50%);
+  --color-region-knee: hsl(142 71% 45%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Safe area for PWA on notched devices */
+  :root {
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+@layer utilities {
+  .tap-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .active-scale {
+    transition: transform 0.1s ease;
+  }
+
+  .active-scale:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Pain slider thumb styling — uses --pain-thumb-color CSS var set inline */
+@layer base {
+  .pain-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--pain-thumb-color, hsl(221 83% 53%));
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease;
+  }
+
+  .pain-slider::-webkit-slider-thumb:active {
+    transform: scale(1.2);
+  }
+
+  .pain-slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--pain-thumb-color, hsl(221 83% 53%));
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+}
