@@ -1,7 +1,26 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import type { AIParsedFoodItem } from "@/types";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+let _genAI: GoogleGenerativeAI | null = null;
+function getGenAI() {
+  if (!_genAI) _genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+  return _genAI;
+}
+
+let _model: ReturnType<GoogleGenerativeAI["getGenerativeModel"]> | null = null;
+function getModel() {
+  if (!_model) {
+    _model = getGenAI().getGenerativeModel({
+      model: "gemini-2.0-flash",
+      generationConfig: {
+        responseMimeType: "application/json",
+        temperature: 0.2,
+        maxOutputTokens: 1024,
+      },
+    });
+  }
+  return _model;
+}
 
 const NUTRITION_PROMPT = `You are a nutrition estimation assistant specializing in Southeast Asian and international foods.
 Given a free-text description of a meal, parse it into individual food items and estimate the nutritional content of each.
@@ -41,15 +60,7 @@ export async function parseNutritionFromText(
   }
 
   try {
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-flash",
-      generationConfig: {
-        responseMimeType: "application/json",
-        temperature: 0.2,
-      },
-    });
-
-    const result = await model.generateContent([
+    const result = await getModel().generateContent([
       NUTRITION_PROMPT,
       `Meal description: "${description}"`,
     ]);

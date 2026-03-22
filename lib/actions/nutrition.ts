@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { formatDateSG } from "@/lib/utils";
-import type { MealType } from "@/types";
+import type { MealType, NutritionEntry } from "@/types";
 
 export async function logMeal(formData: FormData) {
   const supabase = await createClient();
@@ -152,6 +152,50 @@ export async function estimateMealNutrition(description: string) {
 
   const { parseNutritionFromText } = await import("@/lib/ai/gemini");
   return parseNutritionFromText(description);
+}
+
+export async function estimateAndLogMeals(
+  description: string,
+  mealType: MealType
+): Promise<{ entries: NutritionEntry[] } | { error: string }> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return { error: "Not authenticated" };
+
+  // 1. Estimate via Gemini
+  const { parseNutritionFromText } = await import("@/lib/ai/gemini");
+  const result = await parseNutritionFromText(description);
+  if ("error" in result) return result;
+
+  // 2. Batch insert all items in a single DB call
+  const today = formatDateSG();
+  const rows = result.items.map((item) => ({
+    user_id: user.id,
+    date: today,
+    meal_type: mealType,
+    food_name: item.food_name,
+    calories: item.calories,
+    protein_g: item.protein_g,
+    carbs_g: item.carbs_g,
+    fat_g: item.fat_g,
+    source: "ai" as const,
+    ai_reasoning: item.reasoning || null,
+  }));
+
+  const { data, error } = await supabase
+    .from("nutrition_entries")
+    .insert(rows)
+    .select();
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/dashboard");
+  revalidatePath("/nutrition");
+  revalidatePath("/nutrition/log");
+  return { entries: data as NutritionEntry[] };
 }
 
 export async function getRecentMeals() {

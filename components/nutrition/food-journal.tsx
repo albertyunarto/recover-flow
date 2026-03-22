@@ -1,11 +1,7 @@
 "use client";
 
 import { useState, useTransition, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import {
-  estimateMealNutrition,
-  logMeal,
-} from "@/lib/actions/nutrition";
+import { estimateAndLogMeals } from "@/lib/actions/nutrition";
 import { inferMealType } from "@/lib/utils";
 import { Sparkles, Loader2, Send, UtensilsCrossed } from "lucide-react";
 import { JournalEntry } from "@/components/nutrition/journal-entry";
@@ -24,8 +20,6 @@ export function FoodJournal({ entries: initialEntries, calTarget, protTarget }: 
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const inputRef = useRef<HTMLInputElement>(null);
-  const listRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
 
   // Sync with server-refreshed data
   useEffect(() => {
@@ -52,29 +46,18 @@ export function FoodJournal({ entries: initialEntries, calTarget, protTarget }: 
     setError(null);
 
     startTransition(async () => {
-      const result = await estimateMealNutrition(text);
+      // Single server action: estimate + batch insert + return saved entries
+      const result = await estimateAndLogMeals(text, mealType);
+
       if ("error" in result) {
         setError(result.error);
         setDescription(text);
         return;
       }
 
-      // Log each item immediately
-      for (const item of result.items) {
-        const formData = new FormData();
-        formData.set("meal_type", mealType);
-        formData.set("food_name", item.food_name);
-        formData.set("calories", String(item.calories));
-        formData.set("protein_g", String(item.protein_g));
-        formData.set("carbs_g", String(item.carbs_g));
-        formData.set("fat_g", String(item.fat_g));
-        formData.set("source", "ai");
-        formData.set("ai_reasoning", item.reasoning || "");
-        await logMeal(formData);
-      }
-
-      // Refresh to get server data with proper IDs
-      router.refresh();
+      // Add returned entries with real IDs directly to state
+      setEntries((prev) => [...prev, ...result.entries]);
+      inputRef.current?.focus();
     });
   }
 
@@ -135,7 +118,7 @@ export function FoodJournal({ entries: initialEntries, calTarget, protTarget }: 
       </div>
 
       {/* Entries List */}
-      <div ref={listRef} className="flex-1 space-y-2 mb-4 min-h-0 overflow-y-auto">
+      <div className="flex-1 space-y-2 mb-4 min-h-0 overflow-y-auto">
         {entries.length === 0 && !isPending && (
           <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
             <UtensilsCrossed className="h-8 w-8 mb-2 opacity-40" />
@@ -155,7 +138,7 @@ export function FoodJournal({ entries: initialEntries, calTarget, protTarget }: 
         ))}
 
         {isPending && (
-          <div className="flex items-center gap-2 rounded-xl border border-dashed bg-muted/30 px-3 py-3 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 rounded-xl border border-dashed bg-muted/30 px-3 py-3 text-sm text-muted-foreground animate-pulse">
             <Loader2 className="h-4 w-4 animate-spin" />
             Analyzing and logging...
           </div>
