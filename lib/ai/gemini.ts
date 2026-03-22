@@ -15,6 +15,7 @@ Rules:
 - Set confidence to "high" for well-known dishes with standard portions, "medium" for reasonable estimates, "low" for vague descriptions
 - Return serving_size as a human-readable string (e.g. "1 plate", "1 cup", "2 pieces")
 - All numeric values should be integers
+- Include a short reasoning explaining portion assumptions and data source (e.g. "Standard hawker plate with steamed chicken, oiled rice. Based on HPB Singapore data.")
 
 Respond with ONLY valid JSON in this exact format:
 {
@@ -26,7 +27,8 @@ Respond with ONLY valid JSON in this exact format:
       "carbs_g": number,
       "fat_g": number,
       "serving_size": "string",
-      "confidence": "high" | "medium" | "low"
+      "confidence": "high" | "medium" | "low",
+      "reasoning": "string"
     }
   ]
 }`;

@@ -91,3 +91,17 @@ export function getAdherenceColor(pct: number): string {
   if (pct >= 60) return "text-warning";
   return "text-destructive";
 }
+
+export function inferMealType(): "breakfast" | "lunch" | "dinner" | "snack" {
+  const hour = parseInt(
+    new Date().toLocaleString("en-US", {
+      timeZone: SG_TIMEZONE,
+      hour: "numeric",
+      hour12: false,
+    })
+  );
+  if (hour < 10) return "breakfast";
+  if (hour < 14) return "lunch";
+  if (hour < 17) return "snack";
+  return "dinner";
+}

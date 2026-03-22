@@ -81,6 +81,7 @@ export interface NutritionEntry {
   fat_g: number;
   source: "template" | "database" | "custom" | "recent" | "ai";
   source_id: string | null;
+  ai_reasoning: string | null;
   created_at: string;
 }
 
@@ -104,6 +105,7 @@ export interface AIParsedFoodItem {
   fat_g: number;
   serving_size: string;
   confidence: "high" | "medium" | "low";
+  reasoning: string;
 }
 
 export interface WeightEntry {

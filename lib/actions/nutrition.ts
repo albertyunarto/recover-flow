@@ -24,12 +24,14 @@ export async function logMeal(formData: FormData) {
     fat_g: parseInt(formData.get("fat_g") as string) || 0,
     source: (formData.get("source") as string) || "custom",
     source_id: formData.get("source_id") as string | null,
+    ai_reasoning: formData.get("ai_reasoning") as string | null,
   });
 
   if (error) return { error: error.message };
 
   revalidatePath("/dashboard");
   revalidatePath("/nutrition");
+  revalidatePath("/nutrition/log");
   return { success: true };
 }
 
@@ -51,6 +53,38 @@ export async function deleteMealEntry(id: string) {
 
   revalidatePath("/dashboard");
   revalidatePath("/nutrition");
+  revalidatePath("/nutrition/log");
+  return { success: true };
+}
+
+export async function updateMealEntry(
+  id: string,
+  updates: {
+    food_name?: string;
+    calories?: number;
+    protein_g?: number;
+    carbs_g?: number;
+    fat_g?: number;
+  }
+) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return { error: "Not authenticated" };
+
+  const { error } = await supabase
+    .from("nutrition_entries")
+    .update(updates)
+    .eq("id", id)
+    .eq("user_id", user.id);
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/dashboard");
+  revalidatePath("/nutrition");
+  revalidatePath("/nutrition/log");
   return { success: true };
 }
 

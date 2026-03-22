@@ -61,6 +61,7 @@ export function AIMealInput({ mealType }: { mealType: MealType }) {
         formData.set("carbs_g", String(item.carbs_g));
         formData.set("fat_g", String(item.fat_g));
         formData.set("source", "ai");
+        formData.set("ai_reasoning", item.reasoning || "");
         await logMeal(formData);
       }
       router.push("/nutrition");

@@ -1,5 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
-import { MealLogger } from "@/components/nutrition/meal-logger";
+import { formatDateSG } from "@/lib/utils";
+import { FoodJournal } from "@/components/nutrition/food-journal";
+import Link from "next/link";
+import { Search } from "lucide-react";
 
 export default async function NutritionLogPage() {
   const supabase = await createClient();
@@ -9,39 +12,37 @@ export default async function NutritionLogPage() {
 
   if (!user) return null;
 
-  // Fetch recent meals and custom foods
-  const [{ data: recentEntries }, { data: customFoods }] = await Promise.all([
+  const today = formatDateSG();
+
+  const [{ data: profile }, { data: entries }] = await Promise.all([
+    supabase.from("users").select("*").eq("id", user.id).single(),
     supabase
       .from("nutrition_entries")
-      .select(
-        "food_name, calories, protein_g, carbs_g, fat_g, source, source_id"
-      )
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false })
-      .limit(20),
-    supabase
-      .from("custom_foods")
       .select("*")
       .eq("user_id", user.id)
-      .order("created_at", { ascending: false }),
+      .eq("date", today)
+      .order("created_at"),
   ]);
 
-  // Deduplicate recent meals by food_name
-  const seen = new Set<string>();
-  const recentMeals = (recentEntries ?? [])
-    .filter((item) => {
-      if (seen.has(item.food_name)) return false;
-      seen.add(item.food_name);
-      return true;
-    })
-    .slice(0, 5);
+  const calTarget = profile?.daily_calorie_target ?? 1850;
+  const protTarget = profile?.daily_protein_target ?? 140;
 
   return (
-    <div className="space-y-4">
-      <h1 className="text-xl font-bold">Log Meal</h1>
-      <MealLogger
-        recentMeals={recentMeals}
-        customFoods={customFoods ?? []}
+    <div className="flex flex-col h-[calc(100vh-8rem)]">
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-xl font-bold">Food Journal</h1>
+        <Link
+          href="/nutrition/log/browse"
+          className="inline-flex h-8 items-center gap-1.5 rounded-md border px-2.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <Search className="h-3.5 w-3.5" />
+          Browse foods
+        </Link>
+      </div>
+      <FoodJournal
+        entries={entries ?? []}
+        calTarget={calTarget}
+        protTarget={protTarget}
       />
     </div>
   );
