@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { getAuthUser } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
 import { ChevronLeft, Timer, TrendingUp, Zap } from "lucide-react";
 import type { RunSession } from "@/types";
@@ -12,12 +13,10 @@ function formatDuration(seconds: number | null): string {
 }
 
 export default async function RunHistoryPage() {
-  const supabase = await createClient();
-  const {
-    data: { user: authUser },
-  } = await supabase.auth.getUser();
-
+  const authUser = await getAuthUser();
   if (!authUser) redirect("/login");
+
+  const supabase = await createClient();
 
   const { data: sessions } = await supabase
     .from("run_sessions")

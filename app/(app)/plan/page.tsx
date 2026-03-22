@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import Link from "next/link";
 import {
   BookOpen,
@@ -25,18 +25,10 @@ const PHASE_BG: Record<number, string> = {
 };
 
 export default async function PlanPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getAuthUser();
   if (!user) return null;
 
-  const { data: profile } = await supabase
-    .from("users")
-    .select("current_phase, current_week")
-    .eq("id", user.id)
-    .single();
+  const profile = await getUserProfile();
 
   const currentPhase = profile?.current_phase ?? 1;
 

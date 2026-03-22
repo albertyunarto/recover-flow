@@ -1,21 +1,13 @@
-import { createClient } from "@/lib/supabase/server";
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { getWeeklyStats, getWeeklyReview } from "@/lib/actions/weekly-review";
 import { WeeklyReviewForm } from "@/components/progress/weekly-review-form";
 import phasesData from "@/lib/data/phases.json";
 
 export default async function WeeklyReviewPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getAuthUser();
   if (!user) return null;
 
-  const { data: profile } = await supabase
-    .from("users")
-    .select("current_phase, current_week")
-    .eq("id", user.id)
-    .single();
+  const profile = await getUserProfile();
 
   const weekNumber = profile?.current_week ?? 1;
   const phase = profile?.current_phase ?? 1;

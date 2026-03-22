@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
 import { Lock, Play, ChevronRight, CheckCircle2, Circle } from "lucide-react";
 import runScheduleData from "@/lib/data/run-schedule.json";
@@ -11,18 +12,10 @@ function formatRunSchedule(week: RunWeekSchedule): string {
 }
 
 export default async function RunPage() {
-  const supabase = await createClient();
-  const {
-    data: { user: authUser },
-  } = await supabase.auth.getUser();
-
+  const authUser = await getAuthUser();
   if (!authUser) redirect("/login");
 
-  const { data: profile } = await supabase
-    .from("users")
-    .select("current_phase, current_week")
-    .eq("id", authUser.id)
-    .single();
+  const profile = await getUserProfile();
 
   const currentPhase = profile?.current_phase ?? 1;
   const currentWeek = profile?.current_week ?? 1;
@@ -69,6 +62,7 @@ export default async function RunPage() {
   const phaseSchedule = schedule.filter((s) => s.phase === currentPhase);
 
   // Get sessions completed this week
+  const supabase = await createClient();
   const { data: thisWeekSessions } = await supabase
     .from("run_sessions")
     .select("id, date, planned_format, perceived_effort")

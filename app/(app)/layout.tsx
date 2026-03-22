@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { Header } from "@/components/layout/header";
 import { BottomNav } from "@/components/layout/bottom-nav";
 import { Sidebar } from "@/components/layout/sidebar";
@@ -10,22 +10,13 @@ export default async function AppLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = await createClient();
-  const {
-    data: { user: authUser },
-  } = await supabase.auth.getUser();
+  const authUser = await getAuthUser();
 
   if (!authUser) {
     redirect("/login");
   }
 
-  // Fetch user profile
-  const { data: profile } = await supabase
-    .from("users")
-    .select("*")
-    .eq("id", authUser.id)
-    .single();
-
+  const profile = await getUserProfile();
   const currentPhase = profile?.current_phase ?? 1;
   const currentWeek = profile?.current_week ?? 1;
 

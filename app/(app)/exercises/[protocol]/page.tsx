@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
 import { formatDateSG } from "@/lib/utils";
 import { getProtocolsForPhase } from "@/lib/data/protocols";
@@ -26,21 +27,13 @@ export default async function ProtocolSessionPage({ params }: PageProps) {
 
   const protocol = protocolParam as ProtocolType;
 
-  const supabase = await createClient();
-  const {
-    data: { user: authUser },
-  } = await supabase.auth.getUser();
-
+  const authUser = await getAuthUser();
   if (!authUser) return null;
 
-  const { data: profile } = await supabase
-    .from("users")
-    .select("current_phase")
-    .eq("id", authUser.id)
-    .single();
-
+  const profile = await getUserProfile();
   const currentPhase = profile?.current_phase ?? 1;
   const today = formatDateSG();
+  const supabase = await createClient();
 
   const allProtocols = getProtocolsForPhase(currentPhase);
   const protocolData = allProtocols.find((p) => p.protocol === protocol);

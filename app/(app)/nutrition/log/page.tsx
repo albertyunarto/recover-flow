@@ -1,3 +1,4 @@
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
 import { formatDateSG } from "@/lib/utils";
 import { FoodJournal } from "@/components/nutrition/food-journal";
@@ -5,17 +6,14 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 
 export default async function NutritionLogPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getAuthUser();
   if (!user) return null;
 
+  const supabase = await createClient();
   const today = formatDateSG();
 
-  const [{ data: profile }, { data: entries }] = await Promise.all([
-    supabase.from("users").select("*").eq("id", user.id).single(),
+  const [profile, { data: entries }] = await Promise.all([
+    getUserProfile(),
     supabase
       .from("nutrition_entries")
       .select("*")

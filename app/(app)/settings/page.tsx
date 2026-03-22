@@ -1,22 +1,13 @@
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { signOut } from "@/lib/actions/auth";
 import { SettingsForm } from "@/components/settings/settings-form";
 
 export default async function SettingsPage() {
-  const supabase = await createClient();
-  const {
-    data: { user: authUser },
-  } = await supabase.auth.getUser();
-
+  const authUser = await getAuthUser();
   if (!authUser) redirect("/login");
 
-  const { data: profile } = await supabase
-    .from("users")
-    .select("*")
-    .eq("id", authUser.id)
-    .single();
-
+  const profile = await getUserProfile();
   if (!profile) redirect("/login");
 
   return (

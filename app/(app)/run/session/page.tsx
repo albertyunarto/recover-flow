@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { IntervalTimer } from "@/components/timer/interval-timer";
 import runScheduleData from "@/lib/data/run-schedule.json";
 import type { RunWeekSchedule } from "@/types";
@@ -22,18 +22,10 @@ function buildIntervals(schedule: RunWeekSchedule): LocalTimerInterval[] {
 }
 
 export default async function RunSessionPage() {
-  const supabase = await createClient();
-  const {
-    data: { user: authUser },
-  } = await supabase.auth.getUser();
-
+  const authUser = await getAuthUser();
   if (!authUser) redirect("/login");
 
-  const { data: profile } = await supabase
-    .from("users")
-    .select("current_phase, current_week")
-    .eq("id", authUser.id)
-    .single();
+  const profile = await getUserProfile();
 
   const currentPhase = profile?.current_phase ?? 1;
   const currentWeek = profile?.current_week ?? 1;

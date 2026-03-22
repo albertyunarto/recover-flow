@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import Link from "next/link";
 import { ClipboardCheck, Scale } from "lucide-react";
 import { PhaseProgress } from "@/components/progress/phase-progress";
@@ -7,15 +7,11 @@ import { getWeightHistory } from "@/lib/actions/weight";
 import { logWeight } from "@/lib/actions/weight";
 
 export default async function ProgressPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getAuthUser();
   if (!user) return null;
 
-  const [{ data: profile }, weightEntries] = await Promise.all([
-    supabase.from("users").select("*").eq("id", user.id).single(),
+  const [profile, weightEntries] = await Promise.all([
+    getUserProfile(),
     getWeightHistory(),
   ]);
 

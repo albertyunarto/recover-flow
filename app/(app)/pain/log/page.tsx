@@ -1,3 +1,4 @@
+import { getAuthUser } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
 import { formatDateSG } from "@/lib/utils";
 import { PainEntryForm } from "@/components/pain/pain-entry-form";
@@ -8,12 +9,10 @@ export const metadata = {
 };
 
 export default async function PainLogPage() {
-  const supabase = await createClient();
-  const {
-    data: { user: authUser },
-  } = await supabase.auth.getUser();
-
+  const authUser = await getAuthUser();
   if (!authUser) return null;
+
+  const supabase = await createClient();
 
   const today = formatDateSG();
 

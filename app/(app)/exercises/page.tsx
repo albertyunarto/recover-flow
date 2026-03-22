@@ -1,3 +1,4 @@
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
 import { formatDateSG } from "@/lib/utils";
 import { getProtocolForToday } from "@/lib/data/protocols";
@@ -6,21 +7,13 @@ import type { ExerciseLog } from "@/types";
 import { Dumbbell } from "lucide-react";
 
 export default async function ExercisesPage() {
-  const supabase = await createClient();
-  const {
-    data: { user: authUser },
-  } = await supabase.auth.getUser();
-
+  const authUser = await getAuthUser();
   if (!authUser) return null;
 
-  const { data: profile } = await supabase
-    .from("users")
-    .select("current_phase")
-    .eq("id", authUser.id)
-    .single();
-
+  const profile = await getUserProfile();
   const currentPhase = profile?.current_phase ?? 1;
   const today = formatDateSG();
+  const supabase = await createClient();
 
   // Get day of week in Singapore time (0 = Sunday)
   const sgDate = new Date(

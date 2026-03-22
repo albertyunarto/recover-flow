@@ -1,31 +1,27 @@
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
 import { formatDateSG } from "@/lib/utils";
 
 export default async function NutritionHistoryPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getAuthUser();
   if (!user) return null;
+
+  const supabase = await createClient();
 
   // Get last 14 days of nutrition entries
   const twoWeeksAgo = new Date();
   twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
   const startDate = formatDateSG(twoWeeksAgo);
 
-  const { data: entries } = await supabase
-    .from("nutrition_entries")
-    .select("*")
-    .eq("user_id", user.id)
-    .gte("date", startDate)
-    .order("date", { ascending: false });
-
-  const { data: profile } = await supabase
-    .from("users")
-    .select("daily_calorie_target, daily_protein_target")
-    .eq("id", user.id)
-    .single();
+  const [{ data: entries }, profile] = await Promise.all([
+    supabase
+      .from("nutrition_entries")
+      .select("*")
+      .eq("user_id", user.id)
+      .gte("date", startDate)
+      .order("date", { ascending: false }),
+    getUserProfile(),
+  ]);
 
   const calTarget = profile?.daily_calorie_target ?? 1850;
   const protTarget = profile?.daily_protein_target ?? 140;

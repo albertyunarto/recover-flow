@@ -1,16 +1,14 @@
+import { getAuthUser } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
 import { MealLogger } from "@/components/nutrition/meal-logger";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default async function BrowseFoodsPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getAuthUser();
   if (!user) return null;
 
+  const supabase = await createClient();
   const [{ data: recentEntries }, { data: customFoods }] = await Promise.all([
     supabase
       .from("nutrition_entries")

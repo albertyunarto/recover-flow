@@ -1,3 +1,4 @@
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
 import { formatDateSG, calculateStreak } from "@/lib/utils";
 import { GreetingCard } from "@/components/dashboard/greeting-card";
@@ -10,25 +11,22 @@ import { StreakCard } from "@/components/dashboard/streak-card";
 import { RunCard } from "@/components/dashboard/run-card";
 
 export default async function DashboardPage() {
-  const supabase = await createClient();
-  const {
-    data: { user: authUser },
-  } = await supabase.auth.getUser();
-
+  const authUser = await getAuthUser();
   if (!authUser) return null;
 
+  const supabase = await createClient();
   const today = formatDateSG();
 
   // Fetch all dashboard data in parallel
   const [
-    { data: profile },
+    profile,
     { data: painEntries },
     { data: exerciseLogs },
     { data: nutritionEntries },
     { data: hydrationLog },
     { data: allExerciseDates },
   ] = await Promise.all([
-    supabase.from("users").select("*").eq("id", authUser.id).single(),
+    getUserProfile(),
     supabase
       .from("pain_entries")
       .select("*")
