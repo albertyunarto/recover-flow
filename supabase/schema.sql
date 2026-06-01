@@ -135,6 +135,34 @@ CREATE TABLE weekly_reviews (
   UNIQUE(user_id, week_number)
 );
 
+-- FIRE planner profile (one row per user)
+CREATE TABLE fire_profiles (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES users(id) ON DELETE CASCADE NOT NULL UNIQUE,
+  monthly_income numeric(12,2) DEFAULT 8000,
+  annual_bonus numeric(12,2) DEFAULT 16000,
+  current_age int DEFAULT 32,
+  target_retire_age int DEFAULT 50,
+  life_expectancy int DEFAULT 90,
+  monthly_expenses numeric(12,2) DEFAULT 4000,
+  current_invested numeric(14,2) DEFAULT 0,
+  current_cash numeric(14,2) DEFAULT 0,
+  cpf_oa numeric(14,2) DEFAULT 0,
+  cpf_sa numeric(14,2) DEFAULT 0,
+  cpf_ma numeric(14,2) DEFAULT 0,
+  monthly_etf_contribution numeric(12,2) DEFAULT 0,
+  rsu_annual_grant numeric(12,2) DEFAULT 0,
+  rsu_vest_years int DEFAULT 4,
+  rsu_unvested_value numeric(14,2) DEFAULT 0,
+  expected_return_pct numeric(5,2) DEFAULT 7,
+  inflation_pct numeric(5,2) DEFAULT 2.5,
+  swr_pct numeric(5,2) DEFAULT 4,
+  target_retirement_sum text DEFAULT 'FRS' CHECK (target_retirement_sum IN ('BRS','FRS','ERS')),
+  cpf_life_plan text DEFAULT 'standard' CHECK (cpf_life_plan IN ('standard','basic','escalating')),
+  include_cpf_life boolean DEFAULT true,
+  updated_at timestamptz DEFAULT now()
+);
+
 -- Indexes
 CREATE INDEX idx_pain_user_date ON pain_entries(user_id, date);
 CREATE INDEX idx_exercise_user_date ON exercise_logs(user_id, date);
@@ -153,6 +181,7 @@ ALTER TABLE custom_foods ENABLE ROW LEVEL SECURITY;
 ALTER TABLE weight_entries ENABLE ROW LEVEL SECURITY;
 ALTER TABLE hydration_logs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE weekly_reviews ENABLE ROW LEVEL SECURITY;
+ALTER TABLE fire_profiles ENABLE ROW LEVEL SECURITY;
 
 -- RLS Policies (all tables: user can only access their own data)
 CREATE POLICY "Users can view own profile" ON users FOR SELECT USING (true);
@@ -166,3 +195,4 @@ CREATE POLICY "Users can manage own custom foods" ON custom_foods FOR ALL USING 
 CREATE POLICY "Users can manage own weight entries" ON weight_entries FOR ALL USING (true);
 CREATE POLICY "Users can manage own hydration logs" ON hydration_logs FOR ALL USING (true);
 CREATE POLICY "Users can manage own weekly reviews" ON weekly_reviews FOR ALL USING (true);
+CREATE POLICY "Users can manage own fire profile" ON fire_profiles FOR ALL USING (true);

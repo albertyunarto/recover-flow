@@ -69,6 +69,28 @@ export function formatWeight(kg: number): string {
   return `${kg.toFixed(1)} kg`;
 }
 
+const SGD = new Intl.NumberFormat("en-SG", {
+  style: "currency",
+  currency: "SGD",
+  maximumFractionDigits: 0,
+});
+
+// Full SGD amount, e.g. $1,234,567. Infinity renders as a dash.
+export function formatSGD(amount: number): string {
+  if (!Number.isFinite(amount)) return "—";
+  return SGD.format(Math.round(amount));
+}
+
+// Compact SGD for axes/cards, e.g. $1.2M, $84k.
+export function formatSGDShort(amount: number): string {
+  if (!Number.isFinite(amount)) return "—";
+  const abs = Math.abs(amount);
+  const sign = amount < 0 ? "-" : "";
+  if (abs >= 1_000_000) return `${sign}$${(abs / 1_000_000).toFixed(abs >= 10_000_000 ? 0 : 1)}M`;
+  if (abs >= 1_000) return `${sign}$${Math.round(abs / 1_000)}k`;
+  return `${sign}$${Math.round(abs)}`;
+}
+
 export function calculateBMI(weightKg: number, heightCm: number): number {
   const heightM = heightCm / 100;
   return weightKg / (heightM * heightM);

@@ -9,6 +9,7 @@ import { NutritionSummaryCard } from "@/components/dashboard/nutrition-summary-c
 import { DashboardHydration } from "@/components/dashboard/dashboard-hydration";
 import { StreakCard } from "@/components/dashboard/streak-card";
 import { RunCard } from "@/components/dashboard/run-card";
+import { FireCard } from "@/components/dashboard/fire-card";
 
 export default async function DashboardPage() {
   const authUser = await getAuthUser();
@@ -91,6 +92,8 @@ export default async function DashboardPage() {
       </div>
 
       <RunCard currentPhase={currentPhase} currentWeek={currentWeek} />
+
+      <FireCard />
     </div>
   );
 }

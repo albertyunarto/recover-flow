@@ -10,6 +10,7 @@ import {
   TrendingUp,
   BookOpen,
   HeartPulse,
+  PiggyBank,
   Settings,
   Lock,
 } from "lucide-react";
@@ -23,6 +24,7 @@ const SIDEBAR_ITEMS = [
   { href: "/nutrition", label: "Nutrition", icon: Apple },
   { href: "/run", label: "Run Program", icon: Timer, phaseGated: 2 },
   { href: "/progress", label: "Progress", icon: TrendingUp },
+  { href: "/fire", label: "FIRE Planner", icon: PiggyBank },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 

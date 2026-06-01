@@ -8,6 +8,7 @@ import {
   Apple,
   Timer,
   TrendingUp,
+  PiggyBank,
   Lock,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -18,6 +19,7 @@ const NAV_ITEMS = [
   { href: "/nutrition", label: "Nutrition", icon: Apple },
   { href: "/run", label: "Run", icon: Timer, phaseGated: 2 },
   { href: "/progress", label: "Progress", icon: TrendingUp },
+  { href: "/fire", label: "FIRE", icon: PiggyBank },
 ];
 
 export function BottomNav({ currentPhase }: { currentPhase: number }) {

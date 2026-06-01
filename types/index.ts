@@ -269,3 +269,96 @@ export interface WeeklyStats {
   weight_kg: number | null;
   weight_change_kg: number | null;
 }
+
+// ========================================
+// FIRE planner types (Singapore-focused)
+// ========================================
+
+export type RetirementSumTier = "BRS" | "FRS" | "ERS";
+export type CpfLifePlan = "standard" | "basic" | "escalating";
+
+// The full set of inputs that drive a projection. Stored per-user in Supabase
+// and mirrored as reactive state in the planner UI.
+export interface FireInputs {
+  // Income (gross, before CPF)
+  monthly_income: number; // gross monthly salary
+  annual_bonus: number; // additional wages (bonus) paid per year
+
+  // Timeline
+  current_age: number;
+  target_retire_age: number;
+  life_expectancy: number;
+
+  // Spending (expressed in today's dollars)
+  monthly_expenses: number; // expected monthly spend in retirement
+
+  // Current assets
+  current_invested: number; // ETF / equities portfolio
+  current_cash: number; // cash / war-chest (spendable, no growth)
+  cpf_oa: number; // CPF Ordinary Account balance
+  cpf_sa: number; // CPF Special Account balance
+  cpf_ma: number; // CPF MediSave balance
+
+  // Plan
+  monthly_etf_contribution: number; // recurring amount invested each month
+
+  // RSU / equity compensation
+  rsu_annual_grant: number; // value of new RSUs granted each year
+  rsu_vest_years: number; // vesting period for each grant
+  rsu_unvested_value: number; // value of RSUs already granted but not yet vested
+
+  // Assumptions
+  expected_return_pct: number; // nominal annual return on invested assets
+  inflation_pct: number; // annual inflation
+  swr_pct: number; // safe withdrawal rate (for the simple FIRE number)
+
+  // CPF retirement choices
+  target_retirement_sum: RetirementSumTier; // sum set aside in RA at 55
+  cpf_life_plan: CpfLifePlan;
+  include_cpf_life: boolean; // factor CPF LIFE payouts into the plan
+}
+
+export interface FireProfile extends FireInputs {
+  id: string;
+  user_id: string;
+  updated_at: string;
+}
+
+// One row of the year-by-year projection.
+export interface ProjectionYear {
+  age: number;
+  year: number;
+  invested: number; // ETF / equities + reinvested cash & RSUs
+  cpf: number; // OA + SA + MA + RA combined
+  cpfLiquid: number; // CPF accessible for spending (OA from age 55)
+  ma: number; // MediSave (locked for healthcare)
+  netWorth: number; // invested + cash + all CPF
+  spendable: number; // invested + cash + accessible CPF
+  annualExpense: number; // inflated retirement spend (0 while working)
+  cpfLifePayout: number; // annual CPF LIFE income (0 before payout age)
+  contribution: number; // amount added to invested that year
+  phase: "accumulate" | "bridge" | "cpf_life";
+}
+
+export interface FireSummary {
+  // Headline numbers
+  fireNumber: number; // simple SWR-based target (today's dollars)
+  requiredPortfolioAtRetire: number; // invested needed at retirement (future $)
+  projectedPortfolioAtRetire: number; // invested projected at retirement (future $)
+  projectedNetWorthAtRetire: number;
+  requiredMonthlySavings: number; // monthly investing needed to retire on time
+  currentMonthlySavings: number;
+  savingsGap: number; // required - current (negative = surplus)
+
+  // Outcomes
+  earliestFireAge: number | null; // earliest age fully funded at current savings
+  onTrack: boolean;
+  fundedToAge: number; // age the plan lasts to under current savings
+  finalBalance: number; // spendable left at life expectancy (current plan)
+
+  // CPF LIFE
+  cpfLifeMonthly: number; // estimated monthly payout from payout age
+  raAt55: number; // projected Retirement Account at 55
+
+  series: ProjectionYear[]; // projection under current savings
+}
