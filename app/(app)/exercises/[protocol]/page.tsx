@@ -9,6 +9,7 @@ import type { ExerciseLog, ProtocolType } from "@/types";
 const VALID_PROTOCOLS: ProtocolType[] = [
   "cervical",
   "elbow",
+  "strength",
   "core",
   "lower_body",
   "foot",

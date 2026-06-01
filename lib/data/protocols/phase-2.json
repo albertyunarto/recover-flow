@@ -4,272 +4,135 @@
       "protocol": "cervical",
       "phase": 2,
       "frequency": "daily",
-      "duration_minutes": 20,
+      "duration_minutes": 6,
       "exercises": [
+        {
+          "id": "chin-tucks",
+          "name": "Chin Tucks",
+          "sets": 2, "reps": 12, "hold_sec": 5,
+          "form_cue": "Draw the chin straight back into a double chin. Hold 5 sec. Do these before every gym session as part of your warm-up too.",
+          "why": "Still your most important exercise. As loads increase, keeping the C6 nerve root decompressed is what protects you."
+        },
         {
           "id": "iso-flexion",
           "name": "Isometric Neck Flexion",
-          "sets": 3, "reps": 12, "hold_sec": 10,
-          "form_cue": "Press forehead into palm. Resist — don't let head move. Hold 8-10 sec. Increase resistance gradually.",
-          "why": "Progressive overload of deep cervical flexors. Higher hold duration builds endurance."
+          "sets": 2, "reps": 12, "hold_sec": 8,
+          "form_cue": "Press forehead into palm and resist. Increase the force slightly vs Phase 1. Hold 8 sec.",
+          "why": "Progressive overload for the deep neck flexors so the cervical spine keeps pace with your growing gym strength."
         },
         {
           "id": "iso-extension",
           "name": "Isometric Neck Extension",
-          "sets": 3, "reps": 12, "hold_sec": 10,
-          "form_cue": "Press back of head into palm. Resist evenly. Hold 8-10 sec. Increase push force vs Phase 1.",
-          "why": "Progressive posterior cervical strength for the C5-6 segment."
+          "sets": 2, "reps": 12, "hold_sec": 8,
+          "form_cue": "Press the back of the head into the palm and resist. Slightly more force than Phase 1. Hold 8 sec.",
+          "why": "Builds posterior cervical endurance to support your head under bench presses, rows and squats."
         },
         {
-          "id": "chin-tucks",
-          "name": "Chin Tucks",
-          "sets": 3, "reps": 20, "hold_sec": 5,
-          "form_cue": "Sit tall. Draw chin straight back (double chin). Feel stretch at skull base. Do NOT tilt head down. Higher rep count builds endurance.",
-          "why": "Higher volume chin tucks continue to decompress the C6 nerve root and build postural endurance."
-        },
-        {
-          "id": "chin-tuck-overpressure",
-          "name": "Cervical Retraction with Overpressure",
-          "sets": 3, "reps": 12, "hold_sec": 5,
-          "form_cue": "Perform chin tuck, then use fingertips to gently push chin further back. Hold 5 sec.",
-          "why": "Progressive decompression of the C5-6 foramen."
-        },
-        {
-          "id": "scapular-squeeze",
-          "name": "Scapular Squeezes",
-          "sets": 3, "reps": 20, "hold_sec": 5,
-          "form_cue": "Pinch shoulder blades together and DOWN. Hold 5 sec. Don't shrug. Higher volume for endurance.",
-          "why": "Increased volume for upper back stabilizer endurance essential for running posture."
-        },
-        {
-          "id": "prone-ytw",
-          "name": "Prone Y-T-W Raises",
-          "sets": 3, "reps": 10, "hold_sec": 3,
-          "form_cue": "Face-down on bed, arms hanging off edge. Raise arms into Y, then T, then W. Thumbs up. Add light 0.5-1kg weights.",
-          "why": "Progressive scapular stabilizer loading with added resistance."
+          "id": "band-pull-apart",
+          "name": "Band Pull-Aparts",
+          "sets": 2, "reps": 15, "hold_sec": 2,
+          "form_cue": "Hold a light band at shoulder height, arms straight. Pull it apart to your chest, squeezing the shoulder blades. Keep the neck relaxed.",
+          "why": "Adds light dynamic load to the postural muscles, reinforcing the upright position you'll hold under the bar."
         },
         {
           "id": "upper-trap-stretch",
           "name": "Upper Trapezius Stretch",
-          "sets": 3, "reps": 1, "hold_sec": 30,
-          "form_cue": "Tilt head away from tight side. Gentle hand overpressure. STOP if radiating pain. Focus on LEFT side.",
-          "why": "Maintenance of trapezius flexibility as strengthening increases."
-        },
-        {
-          "id": "neck-lateral-flex-strength",
-          "name": "Neck Lateral Flexion Strengthening",
-          "sets": 3, "reps": 12, "hold_sec": 7,
-          "form_cue": "Sit tall. Press side of head into palm (ear toward shoulder). Resist — don't let head move. Hold 5-7 sec each side.",
-          "why": "Strengthens lateral cervical stabilizers (SCM, scalenes) to balance neck musculature and reduce side-bend compensation."
-        },
-        {
-          "id": "thoracic-rotation",
-          "name": "Thoracic Rotation",
-          "sets": 3, "reps": 10, "hold_sec": 3,
-          "form_cue": "Sit on chair, cross arms on chest. Rotate thoracic spine left and right. Keep hips facing forward. Hold end range 3 sec.",
-          "why": "Improves thoracic mobility to reduce load transfer to cervical spine during running."
+          "sets": 1, "reps": 1, "hold_sec": 30,
+          "form_cue": "Gentle tilt away from the tight side, focus LEFT. Stop with any radiating symptoms.",
+          "why": "Keeps the left-sided tension in check as training volume rises."
         }
       ]
     },
     {
       "protocol": "elbow",
       "phase": 2,
-      "frequency": "daily",
-      "duration_minutes": 15,
+      "frequency": "3x_week",
+      "duration_minutes": 8,
       "exercises": [
         {
-          "id": "wrist-ext-stretch",
-          "name": "Wrist Extensor Stretch",
-          "sets": 3, "reps": 1, "hold_sec": 30,
-          "form_cue": "Straighten left arm, palm down. Use right hand to gently press hand down. Feel stretch on outer forearm.",
-          "why": "Continued flexibility maintenance of the common extensor tendon."
+          "id": "hsr-wrist-ext",
+          "name": "Heavy-Slow Wrist Extension",
+          "sets": 3, "reps": 10, "hold_sec": 0,
+          "form_cue": "Forearm supported, palm down, holding a dumbbell. Lift the wrist up over 3 sec, lower over 3 sec — both directions slow and loaded. Add weight when 10 reps feel easy.",
+          "why": "Heavy-slow resistance is the most effective tendinopathy protocol once pain is low. You now load through the lift, not just the lower."
         },
         {
-          "id": "wrist-flex-stretch",
-          "name": "Wrist Flexor Stretch",
-          "sets": 3, "reps": 1, "hold_sec": 30,
-          "form_cue": "Straighten left arm, palm up. Use right hand to press fingers back toward you.",
-          "why": "Balances the forearm musculature and reduces tension through the elbow joint."
-        },
-        {
-          "id": "eccentric-wrist-ext-weighted",
-          "name": "Eccentric Wrist Extensions (Light Dumbbell)",
-          "sets": 3, "reps": 15, "hold_sec": 0,
-          "weight_kg": "1-2",
-          "form_cue": "Rest forearm on table, wrist over edge, palm down. Hold 1-2kg dumbbell. Use other hand to assist raising wrist up. Slowly lower under control (3-4 sec). The DOWN phase is the key.",
-          "why": "Progressive eccentric loading with resistance stimulates stronger tendon collagen remodeling — key phase 2 progression."
-        },
-        {
-          "id": "wrist-curls",
-          "name": "Wrist Curls",
-          "sets": 3, "reps": 15, "hold_sec": 0,
-          "weight_kg": "1-2",
-          "form_cue": "Rest forearm on table, wrist over edge, palm up. Hold 1-2kg dumbbell. Slowly curl wrist up (2 sec) and lower (3 sec).",
-          "why": "Strengthens wrist flexors to balance the extensor loading and support elbow joint mechanics."
-        },
-        {
-          "id": "band-wrist-ext",
-          "name": "Band Wrist Extensions",
-          "sets": 3, "reps": 15, "hold_sec": 0,
-          "form_cue": "Anchor resistance band under foot. Hold band end in affected hand, palm down on thigh. Extend wrist up against band resistance. Slow return.",
-          "why": "Band resistance provides progressive variable load through the wrist extension range — ideal for tendon loading."
+          "id": "reverse-wrist-curl",
+          "name": "Reverse Wrist Curl",
+          "sets": 3, "reps": 12, "hold_sec": 0,
+          "form_cue": "Forearm on thigh or bench, palm down, light dumbbell. Curl the wrist up, control it down. Smooth tempo.",
+          "why": "Builds extensor strength and endurance — the muscles that the C6 nerve once compromised. Restoring them protects the elbow during pulls."
         },
         {
           "id": "supination-pronation",
-          "name": "Forearm Supination/Pronation",
-          "sets": 3, "reps": 15, "hold_sec": 0,
-          "form_cue": "Hold light dumbbell (1kg). Slowly rotate forearm palm-up then palm-down. Keep elbow at side.",
-          "why": "Progressive rotator strengthening with resistance."
+          "name": "Loaded Supination / Pronation",
+          "sets": 3, "reps": 12, "hold_sec": 0,
+          "form_cue": "Hold a dumbbell by one end, elbow at your side. Rotate palm-up to palm-down slowly. Increase the offset weight gradually.",
+          "why": "Progressively loads the forearm rotators that stabilise the lateral epicondyle under grip-heavy gym work."
         },
         {
           "id": "grip-squeeze",
           "name": "Grip Squeezes",
           "sets": 3, "reps": 15, "hold_sec": 3,
-          "form_cue": "Squeeze a firm ball or grip trainer. Hold 3 sec. Release. Mild discomfort is OK, pain is not.",
-          "why": "Progressive grip strengthening as tendon heals."
+          "form_cue": "Squeeze a gripper or soft ball, hold 3 sec, release. Should be pain-free — back off the resistance if not.",
+          "why": "Rebuilds the grip you'll need for rows and carries. Pain-free grip work drives blood flow and tendon healing."
         }
       ]
     },
     {
-      "protocol": "core",
+      "protocol": "strength",
       "phase": 2,
       "frequency": "3x_week",
-      "duration_minutes": 15,
+      "duration_minutes": 40,
       "exercises": [
         {
-          "id": "dead-bug-alternating",
-          "name": "Dead Bugs (Alternating — Full Contralateral)",
-          "sets": 3, "reps": 12, "hold_sec": 0,
-          "form_cue": "Lie on back, arms up, knees at 90°. Extend opposite arm and leg fully — arm to ear, leg to floor (2cm above). Hold 1 sec. Return. Alternate. Keep lower back FLAT.",
-          "why": "Progression from Phase 1: full contralateral extension challenges the deep stabilizers more, preparing for running gait."
+          "id": "barbell-box-squat",
+          "name": "Barbell Box Squat (or Goblet Squat)",
+          "sets": 3, "reps": 8, "hold_sec": 0,
+          "form_cue": "Bar on the upper back, brace, sit back to the box, drive up. Eyes forward, neck neutral — never look up. If the bar bothers your neck, keep loading the goblet squat.",
+          "why": "Your first real barbell pattern. The box controls depth and the neutral-neck cues keep your cervical spine out of trouble while you build serious leg strength."
         },
         {
-          "id": "bird-dog",
-          "name": "Bird Dogs",
-          "sets": 3, "reps": 12, "hold_sec": 5,
-          "form_cue": "On all fours, extend opposite arm and leg. Hold 5 sec. Keep hips level — don't rotate. Add 1 sec pulse at end range.",
-          "why": "Higher volume trains the posterior chain and anti-rotation stability."
+          "id": "trap-bar-deadlift",
+          "name": "Trap-Bar Deadlift",
+          "sets": 3, "reps": 8, "hold_sec": 0,
+          "form_cue": "Stand inside the trap bar, hinge, grab the neutral handles, push the floor away. Flat back, neutral neck, chest proud. Straps OK to spare the elbow.",
+          "why": "The trap bar keeps the load beside you rather than in front, dramatically reducing spinal and neck stress versus a straight-bar deadlift — ideal for your back."
         },
         {
-          "id": "glute-bridge-single",
-          "name": "Single-Leg Glute Bridges",
-          "sets": 3, "reps": 12, "hold_sec": 3,
-          "form_cue": "Lie on back, feet flat. Extend one leg. Push hips up on single leg, squeezing glute. Hold 3 sec. Keep hips level.",
-          "why": "Unilateral glute loading mimics single-leg stance in running and addresses left/right imbalances."
-        },
-        {
-          "id": "side-plank",
-          "name": "Side Planks",
-          "sets": 3, "reps": 1, "hold_sec": 20,
-          "form_cue": "Lie on side, elbow under shoulder, feet stacked. Lift hips off ground. Body forms a straight line. Hold 20 sec each side. Progress to 30 sec.",
-          "why": "Lateral core stability is critical for running — prevents pelvic drop (Trendelenburg) that causes knee and IT band injury."
-        },
-        {
-          "id": "pallof-press-movement",
-          "name": "Pallof Press with Movement",
-          "sets": 3, "reps": 12, "hold_sec": 0,
-          "form_cue": "Stand sideways to anchor. Press band straight out from chest, then raise arms overhead, then return to chest. Resist rotation throughout. Both sides.",
-          "why": "Dynamic anti-rotation training that progresses the Phase 1 Pallof Hold — builds rotational stability for running."
-        }
-      ]
-    },
-    {
-      "protocol": "lower_body",
-      "phase": 2,
-      "frequency": "3x_week",
-      "duration_minutes": 20,
-      "exercises": [
-        {
-          "id": "bodyweight-squat",
-          "name": "Bodyweight Squats",
-          "sets": 4, "reps": 20, "hold_sec": 0,
-          "form_cue": "Feet shoulder-width. Sit back and down. Knees track over toes. Chest up. Full depth. Add tempo: 3 sec down, 1 sec up.",
-          "why": "Higher volume and tempo squats build leg strength endurance for running."
-        },
-        {
-          "id": "lunges",
-          "name": "Forward Lunges",
-          "sets": 3, "reps": 12, "hold_sec": 0,
-          "form_cue": "Step forward, lower back knee toward floor (2cm above). Push back to start through front heel. Alternate legs. Keep trunk upright.",
-          "why": "Lunges replicate the single-leg loading of running — key progression for return to running preparation."
-        },
-        {
-          "id": "single-leg-deadlift",
-          "name": "Single-Leg Romanian Deadlifts",
+          "id": "single-arm-row",
+          "name": "Single-Arm DB Row",
           "sets": 3, "reps": 10, "hold_sec": 0,
-          "form_cue": "Stand on one leg, soft knee. Hinge forward at hip, extending free leg behind. Keep back flat. Lower until you feel hamstring stretch. Return to upright.",
-          "why": "Eccentric hamstring and glute loading in single-leg stance — directly trains the running posture and prevents hamstring injury."
+          "form_cue": "One hand and knee on a bench, flat back, head in line with your spine (don't crane it up). Row the dumbbell to your hip.",
+          "why": "Builds unilateral back strength and irons out left/right imbalances. The supported position keeps the neck safe."
         },
         {
-          "id": "single-leg-calf-raises",
-          "name": "Single-Leg Calf Raises",
-          "sets": 3, "reps": 15, "hold_sec": 2,
-          "form_cue": "Stand on one leg on edge of step. Rise up on toes, hold 2 sec, slowly lower below step level (3 sec down). Both feet for safety if needed.",
-          "why": "Progression from bilateral calf raises. Single-leg replicates running load. The #1 progression for calf resilience."
+          "id": "db-incline-press",
+          "name": "DB Incline Press",
+          "sets": 3, "reps": 10, "hold_sec": 0,
+          "form_cue": "Bench at ~30°. Press dumbbells up and slightly together. Keep shoulder blades pinned, neck relaxed against the pad.",
+          "why": "An incline is gentler on the shoulder than a flat bench and keeps the neck supported while you build pressing strength."
         },
         {
-          "id": "lateral-band-walks",
-          "name": "Lateral Band Walks",
-          "sets": 3, "reps": 15, "hold_sec": 0,
-          "form_cue": "Place resistance band around ankles. Slight squat position. Step sideways — lead foot steps out, trail foot follows. Keep tension in band. 15 steps each direction.",
-          "why": "Hip abductor (glute med) strengthening prevents lateral knee pain and IT band syndrome in runners."
+          "id": "landmine-press",
+          "name": "Landmine Press",
+          "sets": 3, "reps": 10, "hold_sec": 0,
+          "form_cue": "Press the end of a barbell up and away at an angle, one arm at a time. Stand tall, ribs down.",
+          "why": "Your overhead substitute. It trains vertical pressing strength WITHOUT the neck-craning and compression of a strict overhead press — perfect while your cervical spine earns that movement back."
         },
         {
-          "id": "step-ups",
-          "name": "Step-Ups (Higher Step)",
-          "sets": 3, "reps": 15, "hold_sec": 0,
-          "form_cue": "Use a sturdy step (20-25cm). Step up with one foot, drive through heel. Slow return. Alternate legs.",
-          "why": "Progressed from Phase 1 with higher step height."
+          "id": "split-squat",
+          "name": "DB Split Squat",
+          "sets": 3, "reps": 8, "hold_sec": 0,
+          "form_cue": "Dumbbells at your sides, one foot forward. Drop the back knee straight down, drive through the front heel. Tall chest.",
+          "why": "Single-leg strength and balance that carries directly into running and protects the knees."
         },
         {
-          "id": "hip-flexor-stretch",
-          "name": "Hip Flexor Stretch",
-          "sets": 3, "reps": 1, "hold_sec": 30,
-          "form_cue": "Half-kneeling position. Push hips forward. Squeeze glute of back leg. Feel stretch in front of hip. Add overhead reach for deeper stretch.",
-          "why": "Continued hip flexor flexibility maintenance as lower body volume increases."
-        },
-        {
-          "id": "single-leg-balance",
-          "name": "Single Leg Balance — Eyes Closed",
-          "sets": 3, "reps": 1, "hold_sec": 30,
-          "form_cue": "Stand on one leg, eyes closed. Hold 30 sec each side. Progress to unstable surface (folded towel).",
-          "why": "Eyes-closed proprioception challenges the neuromuscular system more — critical for ankle stability on uneven terrain."
-        }
-      ]
-    },
-    {
-      "protocol": "foot",
-      "phase": 2,
-      "frequency": "daily",
-      "duration_minutes": 8,
-      "exercises": [
-        {
-          "id": "toe-curls",
-          "name": "Towel Toe Curls",
-          "sets": 3, "reps": 20, "hold_sec": 0,
-          "form_cue": "Place towel on floor. Scrunch toes to pull towel toward you. Release and repeat. Higher rep volume.",
-          "why": "Progressive intrinsic foot muscle strengthening for arch support."
-        },
-        {
-          "id": "ankle-circles",
-          "name": "Ankle Circles",
-          "sets": 2, "reps": 20, "hold_sec": 0,
-          "form_cue": "Seated. Lift foot off ground. Draw large circles with toes. 20 clockwise, 20 counter-clockwise each foot.",
-          "why": "Increased ankle mobility range for running."
-        },
-        {
-          "id": "short-foot-standing",
-          "name": "Short Foot Exercise — Standing",
-          "sets": 3, "reps": 12, "hold_sec": 5,
-          "form_cue": "Stand with foot flat. Try to shorten your foot by pulling ball of foot toward heel WITHOUT curling toes. Hold 5 sec. Progress to single-leg stance.",
-          "why": "Progression to standing short foot — greater arch muscle load under bodyweight. Prepares for running arch demands."
-        },
-        {
-          "id": "marble-pickups",
-          "name": "Marble Pickups",
-          "sets": 2, "reps": 15, "hold_sec": 0,
-          "form_cue": "Sit with marbles (or small balls) on floor. Pick up each marble using only your toes. Place into a cup. Works all 5 toes.",
-          "why": "Functional intrinsic foot strengthening — activates individual toe flexors and foot intrinsics for better toe-off power in running."
+          "id": "pallof-press",
+          "name": "Pallof Press",
+          "sets": 3, "reps": 12, "hold_sec": 2,
+          "form_cue": "Stand sideways to a cable/band at chest height. Press straight out and resist the pull to rotate. Brace hard.",
+          "why": "Anti-rotation core strength stabilises your trunk under load and is critical for an efficient running stride."
         }
       ]
     }

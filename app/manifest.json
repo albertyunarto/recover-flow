@@ -1,7 +1,7 @@
 {
   "name": "RecoverFlow",
   "short_name": "RecoverFlow",
-  "description": "Personal recovery & running companion",
+  "description": "Strength-first recovery companion — level up through your recovery",
   "start_url": "/dashboard",
   "display": "standalone",
   "background_color": "#ffffff",

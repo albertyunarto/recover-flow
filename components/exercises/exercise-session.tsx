@@ -16,6 +16,7 @@ import type {
 const PROTOCOL_LABELS: Record<string, string> = {
   cervical: "Cervical",
   elbow: "Elbow",
+  strength: "Strength",
   core: "Core",
   lower_body: "Lower Body",
   foot: "Foot",

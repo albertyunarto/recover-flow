@@ -30,25 +30,25 @@ export default async function RunPage() {
             <Lock className="w-8 h-8 text-muted-foreground" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-foreground">Running unlocks in Phase 2</h2>
+            <h2 className="text-lg font-semibold text-foreground">Light running unlocks at Level 2</h2>
             <p className="text-sm text-muted-foreground mt-2">
-              Focus on Phase 1 Foundation: build baseline strength, reduce pain, and establish
-              habits. Running begins in Week 5 of Phase 2.
+              Level 1 is all about safely reloading your strength. Easy run-walk intervals begin in
+              Week 5 (Level 2) as light, secondary cardio — strength stays the priority.
             </p>
           </div>
           <div className="rounded-lg bg-muted/50 p-3 text-left space-y-2">
             <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-              Phase 2 Unlocks
+              Level 2 Unlocks
             </p>
-            <p className="text-sm text-foreground">Run-walk intervals starting 1 min run / 4 min walk</p>
-            <p className="text-sm text-foreground">Progressive overload over 6 weeks</p>
+            <p className="text-sm text-foreground">Easy run-walk intervals, 2×/week</p>
+            <p className="text-sm text-foreground">Gentle progression to a comfortable ~25-min light run</p>
             <p className="text-sm text-foreground">Audio cues &amp; form reminders</p>
           </div>
           <Link
             href="/exercises"
             className="active-scale inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
           >
-            Continue Phase 1 Exercises
+            Continue Level 1 Strength
             <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
@@ -92,7 +92,7 @@ export default async function RunPage() {
           <div className="flex items-start justify-between">
             <div>
               <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-                Week {currentWeek} · Phase {currentPhase}
+                Week {currentWeek} · Level {currentPhase}
               </p>
               <p className="text-base font-semibold text-foreground mt-0.5">
                 {formatRunSchedule(currentSchedule)}
@@ -191,7 +191,7 @@ export default async function RunPage() {
       {/* Phase schedule overview */}
       {phaseSchedule.length > 0 && (
         <div className="rounded-xl border bg-card p-4 shadow-sm space-y-3">
-          <p className="text-sm font-semibold text-foreground">Phase {currentPhase} Schedule</p>
+          <p className="text-sm font-semibold text-foreground">Level {currentPhase} Schedule</p>
           <div className="space-y-2">
             {phaseSchedule.map((week) => {
               const isCurrentWeek = week.week === currentWeek;

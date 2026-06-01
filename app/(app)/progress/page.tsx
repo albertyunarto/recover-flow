@@ -1,18 +1,21 @@
 import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import Link from "next/link";
 import { ClipboardCheck, Scale } from "lucide-react";
-import { PhaseProgress } from "@/components/progress/phase-progress";
+import { LevelJourney } from "@/components/progress/level-journey";
+import { Achievements } from "@/components/progress/achievements";
 import { WeightChart } from "@/components/charts/weight-chart";
 import { getWeightHistory } from "@/lib/actions/weight";
 import { logWeight } from "@/lib/actions/weight";
+import { getGameStats } from "@/lib/actions/gamification";
 
 export default async function ProgressPage() {
   const user = await getAuthUser();
   if (!user) return null;
 
-  const [profile, weightEntries] = await Promise.all([
+  const [profile, weightEntries, gameStats] = await Promise.all([
     getUserProfile(),
     getWeightHistory(),
+    getGameStats(),
   ]);
 
   const currentPhase = profile?.current_phase ?? 1;
@@ -24,11 +27,20 @@ export default async function ProgressPage() {
     <div className="space-y-6">
       <h1 className="text-xl font-bold">Progress</h1>
 
-      {/* Phase Progress */}
-      <div className="rounded-xl border bg-card p-4 shadow-sm space-y-3">
-        <h2 className="text-sm font-semibold">Phase Progress</h2>
-        <PhaseProgress currentPhase={currentPhase} currentWeek={currentWeek} />
-      </div>
+      {/* Level Journey */}
+      <LevelJourney
+        currentLevel={currentPhase}
+        currentWeek={currentWeek}
+        nextLevel={gameStats?.nextLevel ?? null}
+      />
+
+      {/* Achievements */}
+      {gameStats && (
+        <Achievements
+          achievements={gameStats.achievements}
+          unlockedCount={gameStats.unlockedCount}
+        />
+      )}
 
       {/* Weight Chart */}
       <div className="rounded-xl border bg-card p-4 shadow-sm space-y-3">

@@ -3,50 +3,29 @@
     {
       "protocol": "cervical",
       "phase": 4,
-      "frequency": "1x_week",
-      "duration_minutes": 15,
+      "frequency": "2x_week",
+      "duration_minutes": 5,
       "exercises": [
         {
           "id": "chin-tucks",
           "name": "Chin Tucks",
-          "sets": 2, "reps": 15, "hold_sec": 5,
-          "form_cue": "Sit tall. Draw chin straight back. Feel stretch at skull base. Weekly maintenance dose.",
-          "why": "Minimum effective dose to maintain C5-6 decompression benefits during high running volume."
+          "sets": 2, "reps": 10, "hold_sec": 5,
+          "form_cue": "Your lifelong maintenance habit. A couple of sets before heavy or overhead days keeps everything tracking.",
+          "why": "You've reclaimed your neck — these few reps are the cheap insurance that keeps the C6 nerve happy for good."
         },
         {
-          "id": "iso-flexion",
-          "name": "Isometric Neck Flexion",
-          "sets": 2, "reps": 10, "hold_sec": 10,
-          "form_cue": "Press forehead into palm. Resist firmly. Hold 10 sec. Minimal maintenance.",
-          "why": "Weekly minimum to preserve cervical strength gains."
+          "id": "iso-multi",
+          "name": "Multi-Direction Isometrics",
+          "sets": 1, "reps": 8, "hold_sec": 8,
+          "form_cue": "One firm round in all four directions, 8 sec holds. Quick and effective.",
+          "why": "Maintains the cervical strength you've built so it never becomes the weak link again."
         },
         {
-          "id": "iso-extension",
-          "name": "Isometric Neck Extension",
-          "sets": 2, "reps": 10, "hold_sec": 10,
-          "form_cue": "Press back of head into palm. Resist firmly. Hold 10 sec.",
-          "why": "Weekly minimum to preserve posterior cervical strength."
-        },
-        {
-          "id": "band-neck-flexion",
-          "name": "Resistance Band Neck Flexion",
-          "sets": 2, "reps": 12, "hold_sec": 0,
-          "form_cue": "Anchor band behind head at eye level. Stand facing anchor. Place band around forehead. Nod chin to chest against band resistance. Controlled movement.",
-          "why": "Maintenance dynamic resistance exercise to keep cervical flexors strong through running phase."
-        },
-        {
-          "id": "thoracic-rotation",
-          "name": "Thoracic Rotation",
-          "sets": 2, "reps": 10, "hold_sec": 3,
-          "form_cue": "Sit on chair, cross arms on chest. Rotate thoracic spine left and right. Full range. Weekly maintenance.",
-          "why": "Maintenance thoracic mobility to support running posture at increasing intensities."
-        },
-        {
-          "id": "upper-trap-stretch",
-          "name": "Upper Trapezius Stretch",
-          "sets": 2, "reps": 1, "hold_sec": 30,
-          "form_cue": "Tilt head away from tight side. Gentle hand overpressure. Both sides equally.",
-          "why": "Flexibility maintenance during peak training volume."
+          "id": "band-pull-apart",
+          "name": "Band Pull-Aparts",
+          "sets": 2, "reps": 15, "hold_sec": 0,
+          "form_cue": "Pull apart and squeeze. A great between-sets filler on pressing days.",
+          "why": "Postural maintenance for a desk worker who lifts — keeps the upper back strong and the shoulders healthy."
         }
       ]
     },
@@ -54,146 +33,71 @@
       "protocol": "elbow",
       "phase": 4,
       "frequency": "1x_week",
-      "duration_minutes": 10,
+      "duration_minutes": 5,
       "exercises": [
         {
-          "id": "wrist-ext-stretch",
-          "name": "Wrist Extensor Stretch",
-          "sets": 2, "reps": 1, "hold_sec": 30,
-          "form_cue": "Straighten left arm, palm down. Use right hand to gently press hand down. Weekly maintenance.",
-          "why": "Minimum dose flexibility maintenance for the common extensor tendon."
+          "id": "hsr-wrist-ext",
+          "name": "Heavy-Slow Wrist Extension",
+          "sets": 2, "reps": 10, "hold_sec": 0,
+          "form_cue": "One maintenance set or two, controlled tempo. Keep the load you finished Phase 3 with.",
+          "why": "A weekly dose keeps the tendon robust. Tendons stay healthy when you keep loading them — don't drop this entirely."
         },
         {
-          "id": "eccentric-wrist-ext-heavy",
-          "name": "Eccentric Wrist Extensions (Maintenance — 3-4kg)",
-          "sets": 3, "reps": 15, "hold_sec": 0,
-          "weight_kg": "3-4",
-          "form_cue": "Rest forearm on table, wrist over edge, palm down. Hold 3-4kg dumbbell. Assist raising wrist up. Slowly lower under control (4-5 sec). Weekly maintenance.",
-          "why": "Weekly heavy eccentric loading is the minimum dose to maintain tendon integrity during sustained running training."
-        },
-        {
-          "id": "band-wrist-ext",
-          "name": "Band Wrist Extensions",
-          "sets": 2, "reps": 15, "hold_sec": 0,
-          "form_cue": "Anchor resistance band under foot. Hold band end, palm down. Extend wrist up against band resistance. Controlled return.",
-          "why": "Maintenance band loading for wrist extensor strength."
-        },
-        {
-          "id": "grip-squeeze",
-          "name": "Grip Squeezes",
-          "sets": 2, "reps": 15, "hold_sec": 5,
-          "form_cue": "Squeeze a firm grip trainer. Hold 5 sec. Release. Maintenance dose.",
-          "why": "Weekly grip strength maintenance for arm swing efficiency during runs."
+          "id": "hammer-curl",
+          "name": "Hammer Curls",
+          "sets": 2, "reps": 12, "hold_sec": 0,
+          "form_cue": "Neutral grip, full control. Part of your normal arm training now.",
+          "why": "Folds your elbow rehab into ordinary training — the rehab is done, this is just smart maintenance."
         }
       ]
     },
     {
-      "protocol": "core",
+      "protocol": "strength",
       "phase": 4,
       "frequency": "3x_week",
-      "duration_minutes": 20,
+      "duration_minutes": 45,
       "exercises": [
         {
-          "id": "mountain-climbers",
-          "name": "Mountain Climbers",
-          "sets": 3, "reps": 30, "hold_sec": 0,
-          "form_cue": "Start in push-up position. Alternate driving knees toward chest rapidly. Keep hips down — don't let them rise. 30 reps = 15 each leg. Controlled rhythm.",
-          "why": "Running-specific core exercise: mimics the hip flexion pattern and trunk stability demands of running. Builds dynamic core endurance."
+          "id": "squat",
+          "name": "Squat (auto-regulated)",
+          "sets": 4, "reps": 5, "hold_sec": 0,
+          "form_cue": "Front or back squat, neutral neck, braced trunk. Pick a weight that leaves 2 reps in reserve. Add load when 4×5 feels strong.",
+          "why": "Your main lower-body strength driver. Auto-regulating by reps-in-reserve keeps you progressing without grinding reps that could compromise form and your neck."
         },
         {
-          "id": "dead-bug-band",
-          "name": "Dead Bug with Band",
-          "sets": 3, "reps": 12, "hold_sec": 0,
-          "form_cue": "Lie on back. Loop resistance band around both feet. Arms point to ceiling holding band ends. Extend opposite arm and leg against band resistance. Keep lower back flat.",
-          "why": "Band-resisted dead bugs are running-specific — the band mimics the hip flexor and shoulder forces encountered during running gait."
+          "id": "deadlift",
+          "name": "Deadlift",
+          "sets": 3, "reps": 5, "hold_sec": 0,
+          "form_cue": "Neutral spine head-to-hips, brace, drive through the floor. Straps as needed. Keep 1-2 reps in reserve.",
+          "why": "Total-body strength and a powerful posterior chain — the backbone of a resilient, pain-free back."
         },
         {
-          "id": "copenhagen-plank",
-          "name": "Copenhagen Plank",
-          "sets": 3, "reps": 1, "hold_sec": 20,
-          "form_cue": "Lie on side. Place top foot on a bench/chair. Lift hips off floor — only the top foot and elbow contact surfaces. Body forms a straight line. Hold 20-30 sec each side.",
-          "why": "Copenhagen plank is the gold standard running injury prevention exercise — dramatically reduces groin/adductor injuries in runners."
+          "id": "overhead-press",
+          "name": "Overhead Press (seated or standing)",
+          "sets": 4, "reps": 6, "hold_sec": 0,
+          "form_cue": "Brace, press overhead, move your head 'through the window' without throwing it back. Standing only if it stays symptom-free — otherwise keep it seated.",
+          "why": "Full overhead strength regained. You've earned this movement back through months of progressive loading — keep monitoring and it stays yours."
         },
         {
-          "id": "full-plank-dynamic",
-          "name": "Plank with Shoulder Taps",
-          "sets": 3, "reps": 20, "hold_sec": 0,
-          "form_cue": "Start in high plank (hands). Lift one hand to tap opposite shoulder. Return. Alternate. Keep hips still — don't rock side to side.",
-          "why": "Dynamic plank trains the anti-rotation stability required during running arm swing."
+          "id": "bench-or-dip",
+          "name": "Bench Press or Weighted Dip",
+          "sets": 4, "reps": 6, "hold_sec": 0,
+          "form_cue": "Controlled range, shoulder blades set. For dips, stay upright-ish and don't sink past comfortable depth.",
+          "why": "Maintains and builds upper-body pressing strength to balance all your pulling and overhead work."
         },
         {
-          "id": "anti-rotation-press",
-          "name": "Anti-Rotation Press",
-          "sets": 3, "reps": 15, "hold_sec": 2,
-          "form_cue": "Stand sideways to band anchor. Hold band at chest. Press straight out, hold 2 sec, return. Heavier band than Phase 3. Both sides.",
-          "why": "Maintenance and progression of anti-rotation strength for running efficiency."
+          "id": "weighted-pull",
+          "name": "Pull-Up or Weighted Row",
+          "sets": 4, "reps": 8, "hold_sec": 0,
+          "form_cue": "Full hang to chin (or row to ribs). Lead with the elbows, neck long. Add weight when 4×8 is easy.",
+          "why": "Heavy pulling keeps the upper back and grip strong — the foundation of good posture and a healthy neck for life."
         },
         {
-          "id": "single-leg-bridge-march",
-          "name": "Single-Leg Bridge March",
-          "sets": 3, "reps": 20, "hold_sec": 0,
-          "form_cue": "Single-leg bridge position. Maintain hips high and stable while slowly marching free leg. Simulate running hip flexion. 20 reps each side.",
-          "why": "Running-specific: simulates the late stance/swing phase hip pattern under loaded conditions."
-        }
-      ]
-    },
-    {
-      "protocol": "lower_body",
-      "phase": 4,
-      "frequency": "2x_week",
-      "duration_minutes": 30,
-      "exercises": [
-        {
-          "id": "single-leg-squat",
-          "name": "Single-Leg Squats (Pistol Prep)",
-          "sets": 3, "reps": 8, "hold_sec": 0,
-          "form_cue": "Stand on one leg near a wall for safety. Lower to 90° or deeper, keeping knee tracking over toes. Drive up through heel. Other leg extends forward. Use wall if needed.",
-          "why": "Single-leg squat is the ultimate running strength test — mimics the force demands of each step. Prerequisite for injury-free 30-min running."
-        },
-        {
-          "id": "plyometric-squat-jumps",
-          "name": "Plyometric Squat Jumps",
-          "sets": 3, "reps": 8, "hold_sec": 0,
-          "form_cue": "Stand feet shoulder-width. Squat down, then explode up. Land softly through toe-to-midfoot-to-heel. Absorb landing in squat position. Rest 10 sec between reps.",
-          "why": "Plyometric loading prepares leg tendons and muscles for running impact forces. Reduces injury risk when volume increases."
-        },
-        {
-          "id": "single-leg-hops",
-          "name": "Single-Leg Hops (Forward)",
-          "sets": 3, "reps": 8, "hold_sec": 2,
-          "form_cue": "Stand on one leg. Hop forward, absorb landing on same leg. Hold 2 sec to demonstrate control. 8 hops each leg. Start small — quality over distance.",
-          "why": "Direct plyometric preparation for running's single-leg loading pattern. Builds reactive calf and ankle stiffness."
-        },
-        {
-          "id": "hill-sprints-prep",
-          "name": "Hill Sprint Preparation — Uphill Strides",
-          "sets": 4, "reps": 1, "hold_sec": 0,
-          "duration_sec": 20,
-          "form_cue": "Find a gentle slope (5-8% grade). Run uphill at 80% effort for 20 sec. Walk back down fully. 4 repetitions. Focus on driving knees and pumping arms.",
-          "why": "Uphill running reduces impact forces while building leg power and cardiovascular capacity — ideal progressive overload before flat-ground speed work."
-        },
-        {
-          "id": "heavy-calf-raises-single",
-          "name": "Single-Leg Calf Raises — Heavy",
-          "sets": 4, "reps": 15, "hold_sec": 2,
-          "weight_kg": "10-15",
-          "form_cue": "Hold heavy dumbbells (or use calf raise machine). Single-leg on step edge. Rise up fully, hold 2 sec, lower slowly (4 sec) below step. Full range of motion.",
-          "why": "Phase 4 calf loading at 2-3x bodyweight equivalent prepares the Achilles for the 4x bodyweight demand of sustained running."
-        },
-        {
-          "id": "goblet-squat",
-          "name": "Goblet Squats — Heavy",
-          "sets": 4, "reps": 10, "hold_sec": 0,
-          "weight_kg": "16-24",
-          "form_cue": "Hold heavy dumbbell or kettlebell at chest. Feet shoulder-width. Deep squat, elbows inside knees. Drive up through heels. Chest tall.",
-          "why": "Heavy loaded squats maintain lower body strength during peak running volume."
-        },
-        {
-          "id": "hip-flexor-stretch",
-          "name": "Hip Flexor Stretch",
-          "sets": 2, "reps": 1, "hold_sec": 30,
-          "form_cue": "Half-kneeling with overhead reach. Push hips forward, squeeze glute of back leg. Maintenance dose. Critical with high run volume.",
-          "why": "Hip flexor flexibility maintenance is critical as run volume reaches 30+ min — prevents anterior pelvic tilt and back pain."
+          "id": "carry-or-core",
+          "name": "Loaded Carry + Core Finisher",
+          "sets": 3, "reps": 1, "hold_sec": 45,
+          "form_cue": "Farmer or suitcase carry 45 sec, then a hard plank or hanging leg raise. Tall and braced throughout.",
+          "why": "Trunk and grip strength that ties your whole body together and supports both lifting and your light running."
         }
       ]
     }

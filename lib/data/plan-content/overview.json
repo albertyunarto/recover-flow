@@ -1,83 +1,84 @@
 {
-  "title": "24-Week Recovery Plan",
-  "subtitle": "Cervical Spondylosis (C5-6) + Lateral Epicondylitis + Weight Loss + Couch to 5K",
+  "title": "16-Week Return to Strength",
+  "subtitle": "Cervical Spondylosis (C5-6) recovery → progressive resistance training + light running",
   "the_c6_connection": {
-    "title": "The C6 Connection — Why Your Neck and Elbow Are Linked",
-    "content": "Your cervical spondylosis at C5-6 compresses the C6 nerve root, which controls the wrist extensors — the same muscles affected in lateral epicondylitis (tennis elbow). This means your elbow pain isn't isolated; it's part of a kinetic chain that starts at your neck. That's why this plan treats both simultaneously: decompress the nerve root through cervical exercises, while directly rehabilitating the elbow tendon. As cervical symptoms improve, you'll likely see elbow pain reduce too."
+    "title": "Where You Are Now — From Symptom Relief to Rebuilding",
+    "content": "The pins and needles are gone, which means the C6 nerve root that your C5-6 spondylosis was irritating has calmed down. That's the milestone that changes everything: the job is no longer to chase pain away, it's to rebuild capacity. This plan progressively reloads your whole body in the gym while keeping your neck in safe, neutral positions and continuing to load the elbow tendon. Daily chin tucks stay in as cheap insurance — they keep the nerve root decompressed so the symptoms don't return as the weights get heavier. You're self-guiding this now, so the warning signs below are your safety net: respect them and you can train hard and confidently."
   },
   "phases": [
     {
       "phase": 1,
-      "name": "Foundation",
-      "weeks": "Weeks 1–6",
-      "focus": "Pain reduction, mobility, habit formation",
+      "name": "Reload",
+      "weeks": "Weeks 1–4",
+      "focus": "Safely reintroduce loading; neutral-neck, machine-based strength",
       "principles": [
-        "Never push through sharp or radiating pain",
-        "Consistency over intensity — daily gentle work beats occasional hard sessions",
-        "Build the habit of daily exercise, pain logging, and nutrition tracking",
-        "Walking is the only cardio — no running until Phase 2"
+        "Never push through sharp, radiating, or tingling symptoms — that is the one hard rule",
+        "Neutral neck on everything: eyes forward, never crane or look up under load",
+        "Leave 3–4 reps in the tank — this phase is about pattern and tolerance, not maxing out",
+        "Keep the daily chin-tuck habit; it protects the C6 nerve as you reload",
+        "Walking is the only cardio — running starts in Phase 2"
       ],
-      "protocols": ["Cervical (daily, 15 min)", "Elbow (daily, 10 min)", "Core (3×/week, 10 min)", "Lower Body (3×/week, 15 min)", "Foot (daily, 5 min)"],
-      "nutrition": "Moderate deficit: ~1,850 kcal/day, 140g protein. Focus on whole foods, SG hawker-friendly options.",
-      "avoid": ["Running or high-impact activity", "Overhead pressing or heavy lifting", "Neck extension stretches (looking up forcefully)", "Gripping heavy objects with left hand", "Sitting >45 min without a posture break"]
+      "protocols": ["Strength (3×/week, ~35 min)", "Elbow tendon loading (3×/week, ~8 min)", "Cervical maintenance (daily, ~6 min)"],
+      "nutrition": "Eat to support recovery and lean muscle: roughly maintenance calories with ~1.6–2.0 g protein per kg bodyweight. A small deficit is fine if fat loss is a goal, but don't under-fuel your lifts.",
+      "avoid": ["Running or high-impact activity", "Overhead/strict pressing (use landmine press instead)", "Heavy barbell back squats and straight-bar deadlifts (use machines, goblet & trap bar)", "Looking up or forcefully extending the neck under load", "Grinding reps to failure"]
     },
     {
       "phase": 2,
       "name": "Build",
-      "weeks": "Weeks 7–12",
-      "focus": "Run-walk introduction, progressive exercise loading",
+      "weeks": "Weeks 5–8",
+      "focus": "Free-weight compounds + light run-walk introduction",
       "principles": [
-        "Run-walk intervals start small — respect the 10% weekly increase rule",
-        "Monitor pain after every run session",
-        "Progress exercises to add resistance",
-        "Weight loss should continue at 0.5–1 kg/week"
+        "Progress load gradually — add weight only when reps stay crisp and symptom-free",
+        "Running is light and secondary: easy effort, 2×/week, respect a 10% weekly increase",
+        "Monitor neck and elbow the day after every session, not just during",
+        "The landmine press is still your overhead — vertical pressing is reintroduced later"
       ],
-      "protocols": ["Cervical (daily, upgraded)", "Elbow (daily, with dumbbell)", "Core (3×/week, progressed)", "Lower Body (3×/week, with lunges)", "Run-Walk (3×/week, 25–30 min)"],
-      "nutrition": "Continue deficit. Slightly higher carbs on run days for energy."
+      "protocols": ["Strength (3×/week, ~40 min)", "Elbow loading (3×/week, ~8 min)", "Cervical maintenance (daily, ~6 min)", "Easy run-walk (2×/week)"],
+      "nutrition": "Continue adequate protein. Add a little extra carbohydrate on run days for energy."
     },
     {
       "phase": 3,
-      "name": "Advance",
-      "weeks": "Weeks 13–18",
-      "focus": "Longer runs, maintenance rehab, strength building",
+      "name": "Strength",
+      "weeks": "Weeks 9–12",
+      "focus": "Heavier compounds, cautious overhead, full elbow loading",
       "principles": [
-        "Rehab moves to maintenance frequency (2×/week)",
-        "Running becomes the primary physical activity",
-        "Include one deload week (Week 13)",
-        "Focus on running form and enjoyment"
+        "Heavier loads (≈5–8 reps) on the main lifts — bracing and neutral neck become non-negotiable",
+        "Reintroduce overhead pressing SEATED and light; drop it instantly if any neck symptoms appear",
+        "Cervical and elbow work drop to a 2×/week maintenance dose",
+        "Runs become easy continuous efforts — comfort over pace"
       ],
-      "protocols": ["Cervical (2×/week)", "Elbow (2×/week)", "Core (3×/week, advanced)", "Lower Body (3×/week, strength)", "Running (3×/week, 20–30 min)"],
-      "nutrition": "Approaching target weight. May slightly increase calories if energy is low on heavy run days."
+      "protocols": ["Strength (3×/week, ~45 min)", "Elbow maintenance (2×/week)", "Cervical maintenance (2×/week)", "Easy continuous run (2×/week)"],
+      "nutrition": "Fuel the heavier training. Keep protein high to support strength gains and tendon health."
     },
     {
       "phase": 4,
-      "name": "5K Ready",
-      "weeks": "Weeks 19–24",
-      "focus": "Continuous running, performance, goal achievement",
+      "name": "Perform",
+      "weeks": "Weeks 13–16",
+      "focus": "Maintain strength, auto-regulate, sustainable light running",
       "principles": [
-        "Build to 30-minute continuous run",
-        "Rehab is maintenance only (1×/week)",
-        "Include a deload at Week 20",
-        "Celebrate — you're running!"
+        "Auto-regulate by reps-in-reserve — train hard on good days, ease off on stiff ones",
+        "Overhead and full lifts are back if they stay symptom-free",
+        "Keep a comfortable ~25-min light run twice a week for cardio and bodyweight management",
+        "Neck and elbow work continue at a minimal maintenance dose — never drop them entirely"
       ],
-      "protocols": ["Cervical (1×/week)", "Elbow (1×/week)", "Core (3×/week, running-specific)", "Lower Body (3×/week, plyometrics)", "Running (3×/week, 15–30 min continuous)"],
-      "nutrition": "At or near target weight (77 kg). Transition to maintenance calories if goal reached."
+      "protocols": ["Strength (3×/week, ~45 min)", "Cervical maintenance (2×/week)", "Elbow maintenance (1×/week)", "Light run (2×/week, ~25 min)"],
+      "nutrition": "Eat at maintenance to hold your gains, or a slight deficit if fat loss is still a goal. Protein stays high."
     }
   ],
   "warning_signs": [
-    { "sign": "Sharp shooting pain down the arm", "action": "STOP immediately. This suggests nerve compression. Contact physio." },
-    { "sign": "Numbness or tingling in fingers", "action": "Stop the current exercise. If it persists >30 min, contact doctor." },
-    { "sign": "Pain that worsens after exercise (not just during)", "action": "Reduce intensity next session. If it continues 3+ days, see physio." },
-    { "sign": "Neck pain >7/10 that doesn't ease with rest", "action": "Skip exercises for that day. If it persists 48 hours, see doctor." },
-    { "sign": "Knee pain during or after running", "action": "Stop running. Return to walking. May need gait re-assessment." },
-    { "sign": "Any new symptoms (dizziness, headaches, balance issues)", "action": "Stop all exercises. See doctor before continuing." }
+    { "sign": "Pins, needles, numbness or tingling returning in the arm or fingers", "action": "STOP the session. This is the C6 nerve flaring — back off loading for a few days, return to gentle chin tucks, and if it persists >48h or worsens, see a doctor before training again." },
+    { "sign": "Sharp shooting pain down the arm", "action": "STOP immediately. Suggests nerve compression. Rest and book a physio/doctor review before loading the upper body again." },
+    { "sign": "Neck pain that worsens the day AFTER training", "action": "Reduce load and volume next session and recheck your neck position. If it continues 3+ days, see a physio." },
+    { "sign": "Lateral elbow pain that lingers >24h after loading", "action": "Drop back to isometric holds and lighter eccentrics for a week before progressing the tendon again." },
+    { "sign": "Knee or shin pain during or after running", "action": "Stop running, return to walking, and check your easy pace is truly conversational. Strength is the priority anyway." },
+    { "sign": "Any new neurological symptoms (dizziness, headaches, balance, weakness)", "action": "Stop all training and see a doctor before continuing." }
   ],
   "ergonomic_checklist": [
-    "Monitor at eye level (use laptop stand + external keyboard)",
-    "Feet flat on floor or footrest",
-    "Elbows at 90° when typing",
-    "Take posture break every 30 minutes (5 chin tucks + 5 shoulder rolls)",
-    "Use vertical mouse to reduce wrist extension",
-    "Keep frequently used items within easy reach (no overhead reaching)"
+    "Monitor at eye level (laptop stand + external keyboard)",
+    "Feet flat on the floor or a footrest, elbows at ~90° when typing",
+    "Take a posture break every 30–45 min (5 chin tucks + 5 shoulder rolls)",
+    "Use a vertical mouse to reduce wrist extension and elbow strain",
+    "Keep frequently used items within reach — no repeated overhead reaching",
+    "Do your chin tucks before every gym session as part of the warm-up"
   ]
 }

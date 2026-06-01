@@ -9,8 +9,10 @@ import {
   Minus,
   CheckCircle2,
   Circle,
+  ChevronsUp,
 } from "lucide-react";
 import type { WeeklyStats, GateCriterion } from "@/types";
+import { LEVELS } from "@/lib/gamification";
 
 const TREND_ICONS = {
   up: TrendingUp,
@@ -179,10 +181,20 @@ export function WeeklyReviewForm({
         </div>
       )}
 
-      {/* Gate Criteria */}
+      {/* Level-Up Challenges */}
       {gateCriteria.length > 0 && (
         <div className="rounded-xl border bg-card p-4 shadow-sm space-y-3">
-          <h3 className="text-sm font-semibold">Phase Gate Criteria</h3>
+          <div className="flex items-center gap-2">
+            <ChevronsUp className="h-4 w-4 text-primary" />
+            <h3 className="text-sm font-semibold">
+              Level {phase} → {phase + 1}
+              {LEVELS[phase] ? `: ${LEVELS[phase].name}` : ""} Challenges
+            </h3>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Tap each manual challenge once it&apos;s true. Auto-checks read from your
+            logged data. Clear them all to unlock the next level.
+          </p>
           <div className="space-y-2">
             {gateCriteria.map((c) => {
               const met = isGateMet(c);
@@ -239,10 +251,19 @@ export function WeeklyReviewForm({
           <button
             onClick={handleAdvance}
             disabled={isPending}
-            className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-streak text-streak-foreground font-medium active:scale-95 disabled:opacity-50"
+            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-streak text-streak-foreground font-bold shadow-md active:scale-95 disabled:opacity-50"
           >
-            Advance to Phase {phase + 1}
+            <ChevronsUp className="h-5 w-5" />
+            Level Up to Level {phase + 1}
+            {LEVELS[phase] ? `: ${LEVELS[phase].name}` : ""}
           </button>
+        )}
+
+        {!allGatesMet && phase < 4 && (
+          <p className="text-center text-xs text-muted-foreground">
+            Clear all Level {phase} → {phase + 1} challenges above to unlock the
+            Level Up button.
+          </p>
         )}
       </div>
     </div>
