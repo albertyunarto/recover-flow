@@ -29,7 +29,7 @@ export default function LoginPage() {
           <h1 className="text-2xl font-bold">RecoverFlow</h1>
         </div>
         <p className="text-sm text-muted-foreground">
-          Your personal recovery & running companion
+          Rebuild your strength, level up your recovery
         </p>
       </div>
 

@@ -9,6 +9,7 @@ import { NutritionSummaryCard } from "@/components/dashboard/nutrition-summary-c
 import { DashboardHydration } from "@/components/dashboard/dashboard-hydration";
 import { StreakCard } from "@/components/dashboard/streak-card";
 import { RunCard } from "@/components/dashboard/run-card";
+import { LevelCard } from "@/components/dashboard/level-card";
 
 export default async function DashboardPage() {
   const authUser = await getAuthUser();
@@ -68,6 +69,8 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-4">
       <GreetingCard name={name} phase={currentPhase} week={currentWeek} />
+
+      <LevelCard />
 
       <QuickActions currentPhase={currentPhase} />
 

@@ -38,7 +38,7 @@ CREATE TABLE exercise_logs (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id uuid REFERENCES users(id) ON DELETE CASCADE NOT NULL,
   date date NOT NULL,
-  protocol text NOT NULL CHECK (protocol IN ('cervical','elbow','core','lower_body','foot')),
+  protocol text NOT NULL CHECK (protocol IN ('cervical','elbow','strength','core','lower_body','foot')),
   exercises jsonb NOT NULL,
   total_exercises int NOT NULL,
   completed_count int NOT NULL,

@@ -150,6 +150,7 @@ export interface WeeklyReview {
 export type ProtocolType =
   | "cervical"
   | "elbow"
+  | "strength"
   | "core"
   | "lower_body"
   | "foot";

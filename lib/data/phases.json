@@ -2,30 +2,30 @@
   "phases": [
     {
       "number": 1,
-      "name": "Foundation",
-      "weeks": [1, 6],
-      "description": "Build baseline strength, reduce pain, establish habits. Focus on cervical and elbow rehab with gentle mobility work. Walking only — no running yet.",
+      "name": "Reload",
+      "weeks": [1, 4],
+      "description": "Re-introduce loading safely now that the nerve symptoms have settled. Machine and supported lifts with a neutral neck, daily neck maintenance, and tendon-loading for the elbow. Walking only — no running yet.",
       "color": "#2563eb"
     },
     {
       "number": 2,
       "name": "Build",
-      "weeks": [7, 12],
-      "description": "Introduce run-walk intervals. Progress exercise difficulty. Continue weight loss trajectory. Begin building cardio base.",
+      "weeks": [5, 8],
+      "description": "Step up to free-weight compounds with progressive overload. Introduce easy, low-volume run-walk intervals as light cardio. Strength stays the priority.",
       "color": "#16a34a"
     },
     {
       "number": 3,
-      "name": "Advance",
-      "weeks": [13, 18],
-      "description": "Increase running duration. Maintenance rehab with added strength. Push toward continuous running. Target weight approaching goal.",
+      "name": "Strength",
+      "weeks": [9, 12],
+      "description": "Heavier compound lifts with a neutral neck, the cautious reintroduction of overhead pressing, and full elbow loading. Easy continuous runs build toward 15 minutes.",
       "color": "#f59e0b"
     },
     {
       "number": 4,
-      "name": "5K Ready",
-      "weeks": [19, 24],
-      "description": "Build to 30-minute continuous run. Performance-focused training. Maintenance exercises. Reach target weight of 77 kg.",
+      "name": "Perform",
+      "weeks": [13, 16],
+      "description": "Maintain and auto-regulate your strength, keep a comfortable ~25-minute light run twice a week, and hold neck/elbow work at a maintenance dose. This is your sustainable steady state.",
       "color": "#7c3aed"
     }
   ],
@@ -33,31 +33,33 @@
     {
       "from": 1,
       "to": 2,
-      "name": "Foundation → Build",
+      "name": "Level 1 Reload → Level 2 Build",
       "criteria": [
-        { "id": "doctor_review", "label": "Doctor review completed", "type": "manual" },
-        { "id": "physio_clearance", "label": "Physio clearance to progress", "type": "manual" },
-        { "id": "pain_threshold", "label": "Pain consistently ≤3/10 (all regions)", "type": "auto" },
-        { "id": "walk_30", "label": "Can walk 30 min pain-free", "type": "manual" },
-        { "id": "gait_analysis", "label": "Gait analysis completed + shoes purchased", "type": "manual" }
+        { "id": "no_pins_needles", "label": "No return of pins, needles or arm tingling", "type": "manual" },
+        { "id": "pain_threshold", "label": "Neck, back & elbow pain consistently ≤3/10", "type": "auto" },
+        { "id": "reload_no_flare", "label": "Completed Reload sessions with no next-day flare-up", "type": "manual" },
+        { "id": "hinge_squat_clear", "label": "Bodyweight squat & hip hinge feel pain-free", "type": "manual" }
       ]
     },
     {
       "from": 2,
       "to": 3,
-      "name": "Build → Advance",
+      "name": "Level 2 Build → Level 3 Strength",
       "criteria": [
-        { "id": "run_walk_30", "label": "Completed 30-min run-walk without pain increase", "type": "manual" },
-        { "id": "elbow_daily", "label": "Elbow pain ≤2/10 in daily activities", "type": "auto" }
+        { "id": "three_sessions_streak", "label": "3 strength sessions/week for 2+ weeks straight", "type": "manual" },
+        { "id": "elbow_daily", "label": "Elbow pain ≤2/10 in daily activities", "type": "auto" },
+        { "id": "run_walk_clear", "label": "Easy run-walk completed with no symptom increase", "type": "manual" },
+        { "id": "compound_form", "label": "Confident free-weight squat, hinge & row form", "type": "manual" }
       ]
     },
     {
       "from": 3,
       "to": 4,
-      "name": "Advance → 5K Ready",
+      "name": "Level 3 Strength → Level 4 Perform",
       "criteria": [
-        { "id": "run_20", "label": "Can run 20 min continuous pain-free", "type": "manual" },
-        { "id": "weight", "label": "Weight ≤82 kg", "type": "auto" }
+        { "id": "moderate_load_clear", "label": "Handling moderate loads with a neutral neck, symptom-free", "type": "manual" },
+        { "id": "overhead_clear", "label": "Reintroduced overhead pressing with no neck symptoms", "type": "manual" },
+        { "id": "run_15_clear", "label": "Easy 12–15 min continuous run feels comfortable", "type": "manual" }
       ]
     }
   ]

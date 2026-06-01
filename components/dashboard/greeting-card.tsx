@@ -1,10 +1,10 @@
 import { getGreeting } from "@/lib/utils";
 
 const PHASE_NAMES: Record<number, string> = {
-  1: "Foundation",
+  1: "Reload",
   2: "Build",
-  3: "Advance",
-  4: "5K Ready",
+  3: "Strength",
+  4: "Perform",
 };
 
 export function GreetingCard({
@@ -30,7 +30,7 @@ export function GreetingCard({
         {greeting}, {name}
       </h1>
       <p className="text-sm text-muted-foreground">
-        {today} &middot; Week {week}, Phase {phase} — {PHASE_NAMES[phase]}
+        {today} &middot; Level {phase}: {PHASE_NAMES[phase]} &middot; Week {week}
       </p>
     </div>
   );

@@ -21,7 +21,7 @@ export function RunCard({
           <Lock className="h-3.5 w-3.5 ml-auto text-muted-foreground" />
         </div>
         <p className="text-xs text-muted-foreground">
-          Running unlocks in Phase 2 — complete your foundation first
+          Light running unlocks at Level 2 — reload your strength first
         </p>
       </div>
     );

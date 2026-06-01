@@ -96,10 +96,10 @@ export function SettingsForm({ profile }: { profile: User }) {
                 defaultValue={profile.current_phase}
                 className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm"
               >
-                <option value={1}>1 — Foundation</option>
-                <option value={2}>2 — Build</option>
-                <option value={3}>3 — Advance</option>
-                <option value={4}>4 — 5K Ready</option>
+                <option value={1}>Level 1 — Reload</option>
+                <option value={2}>Level 2 — Build</option>
+                <option value={3}>Level 3 — Strength</option>
+                <option value={4}>Level 4 — Perform</option>
               </select>
             </div>
             <div className="space-y-1">
@@ -108,7 +108,7 @@ export function SettingsForm({ profile }: { profile: User }) {
                 name="week"
                 type="number"
                 min={1}
-                max={24}
+                max={16}
                 defaultValue={profile.current_week}
                 className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm"
               />

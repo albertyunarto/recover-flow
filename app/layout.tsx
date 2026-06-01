@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "RecoverFlow",
   description:
-    "Personal recovery & running companion — injury rehab, nutrition, and run-walk progression",
+    "Strength-first recovery companion — progressive resistance training, neck & elbow rehab, light running, and nutrition. Level up through your recovery.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,

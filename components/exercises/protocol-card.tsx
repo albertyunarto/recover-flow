@@ -5,6 +5,7 @@ import {
   Target,
   Footprints,
   PersonStanding,
+  Dumbbell,
   ChevronRight,
   Clock,
   CheckCircle2,
@@ -27,6 +28,12 @@ const PROTOCOL_META: Record<
     Icon: Hand,
     color: "text-orange-600",
     bgColor: "bg-orange-50 dark:bg-orange-950/30",
+  },
+  strength: {
+    label: "Strength",
+    Icon: Dumbbell,
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-50 dark:bg-indigo-950/30",
   },
   core: {
     label: "Core",

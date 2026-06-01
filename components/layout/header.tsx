@@ -11,10 +11,10 @@ const PHASE_COLORS: Record<number, string> = {
 };
 
 const PHASE_NAMES: Record<number, string> = {
-  1: "Foundation",
+  1: "Reload",
   2: "Build",
-  3: "Advance",
-  4: "5K Ready",
+  3: "Strength",
+  4: "Perform",
 };
 
 export function Header({
@@ -36,7 +36,7 @@ export function Header({
           <div
             className={`${PHASE_COLORS[phase] || PHASE_COLORS[1]} text-white text-xs font-medium px-2.5 py-1 rounded-full`}
           >
-            Phase {phase} &middot; Week {week}
+            Lv {phase} {PHASE_NAMES[phase] ?? ""} &middot; Wk {week}
           </div>
           <Link
             href="/settings"

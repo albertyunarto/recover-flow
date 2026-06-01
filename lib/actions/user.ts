@@ -44,7 +44,7 @@ export async function updatePhase(formData: FormData) {
   const phase = parseInt(formData.get("phase") as string);
   const week = parseInt(formData.get("week") as string);
 
-  if (phase < 1 || phase > 4 || week < 1 || week > 24) {
+  if (phase < 1 || phase > 4 || week < 1 || week > 16) {
     return { error: "Invalid phase or week" };
   }
 
