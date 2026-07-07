@@ -21,7 +21,11 @@ function buildIntervals(schedule: RunWeekSchedule): LocalTimerInterval[] {
   return intervals;
 }
 
-export default async function RunSessionPage() {
+export default async function RunSessionPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ week?: string }>;
+}) {
   const authUser = await getAuthUser();
   if (!authUser) redirect("/login");
 
@@ -35,7 +39,17 @@ export default async function RunSessionPage() {
   }
 
   const schedule = runScheduleData.schedule as RunWeekSchedule[];
-  const currentSchedule = schedule.find((s) => s.week === currentWeek);
+
+  // Readiness "hold" suggestion: allow running an EARLIER week's session
+  // (never a later one — the override can only reduce load).
+  const { week: weekParam } = await searchParams;
+  const requestedWeek = weekParam ? parseInt(weekParam, 10) : NaN;
+  const sessionWeek =
+    Number.isInteger(requestedWeek) && requestedWeek < currentWeek
+      ? requestedWeek
+      : currentWeek;
+
+  const currentSchedule = schedule.find((s) => s.week === sessionWeek);
 
   if (!currentSchedule) {
     redirect("/run");
@@ -48,8 +62,8 @@ export default async function RunSessionPage() {
   return (
     <IntervalTimer
       intervals={intervals}
-      weekNumber={currentWeek}
-      phase={currentPhase}
+      weekNumber={sessionWeek}
+      phase={currentSchedule.phase}
       plannedFormat={plannedFormat}
       totalCycles={currentSchedule.cycles ?? 0}
     />

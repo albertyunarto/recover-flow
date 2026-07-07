@@ -2,6 +2,10 @@
 
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
+import {
+  computeReadinessRows,
+  type MetricsForReadiness,
+} from "@/lib/readiness/backfill";
 import type {
   DailyMetricPartial,
   ImportedExerciseRow,
@@ -164,8 +168,36 @@ export async function importFitbitData(payload: {
     exercisesUpserted += rows.length;
   }
 
+  // Recompute readiness over the full history: baselines shift whenever
+  // history changes, so per-date incremental updates would drift.
+  if (daysUpserted > 0) {
+    const { data: allMetrics, error: metricsError } = await supabase
+      .from("daily_metrics")
+      .select(
+        "date, sleep_score, sleep_minutes, sleep_efficiency, resting_hr, hrv_rmssd, azm_total"
+      )
+      .eq("user_id", user.id)
+      .eq("source", METRIC_SOURCE)
+      .order("date", { ascending: true });
+    if (metricsError) return { error: metricsError.message };
+
+    const readinessRows = computeReadinessRows(
+      (allMetrics ?? []) as MetricsForReadiness[]
+    );
+    for (const batch of chunk(readinessRows, CHUNK_SIZE)) {
+      const { error: readinessError } = await supabase
+        .from("readiness_scores")
+        .upsert(
+          batch.map((row) => ({ user_id: user.id, ...row })),
+          { onConflict: "user_id,date" }
+        );
+      if (readinessError) return { error: readinessError.message };
+    }
+  }
+
   revalidatePath("/dashboard");
   revalidatePath("/progress");
+  revalidatePath("/run");
   revalidatePath("/settings/import");
 
   return { summary: { daysUpserted, weightsMirrored, exercisesUpserted } };

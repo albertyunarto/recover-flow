@@ -10,6 +10,8 @@ import { DashboardHydration } from "@/components/dashboard/dashboard-hydration";
 import { StreakCard } from "@/components/dashboard/streak-card";
 import { RunCard } from "@/components/dashboard/run-card";
 import { LevelCard } from "@/components/dashboard/level-card";
+import { ReadinessCard } from "@/components/dashboard/readiness-card";
+import { getLatestReadiness } from "@/lib/actions/readiness";
 
 export default async function DashboardPage() {
   const authUser = await getAuthUser();
@@ -21,6 +23,7 @@ export default async function DashboardPage() {
   // Fetch all dashboard data in parallel
   const [
     profile,
+    readinessStatus,
     { data: painEntries },
     { data: exerciseLogs },
     { data: nutritionEntries },
@@ -28,6 +31,7 @@ export default async function DashboardPage() {
     { data: allExerciseDates },
   ] = await Promise.all([
     getUserProfile(),
+    getLatestReadiness(),
     supabase
       .from("pain_entries")
       .select("*")
@@ -66,9 +70,18 @@ export default async function DashboardPage() {
   const currentWeek = profile?.current_week ?? 1;
   const name = profile?.name ?? "Albert";
 
+  // Only let a verdict adjust today's protocol when it's actually about
+  // today (or close): stale data shows the nudge instead.
+  const freshVerdict =
+    readinessStatus.readiness && (readinessStatus.staleDays ?? 99) <= 2
+      ? readinessStatus.readiness.verdict
+      : null;
+
   return (
     <div className="space-y-4">
       <GreetingCard name={name} phase={currentPhase} week={currentWeek} />
+
+      <ReadinessCard status={readinessStatus} />
 
       <LevelCard />
 
@@ -93,7 +106,11 @@ export default async function DashboardPage() {
         <StreakCard streak={streak} />
       </div>
 
-      <RunCard currentPhase={currentPhase} currentWeek={currentWeek} />
+      <RunCard
+        currentPhase={currentPhase}
+        currentWeek={currentWeek}
+        verdict={freshVerdict}
+      />
     </div>
   );
 }
