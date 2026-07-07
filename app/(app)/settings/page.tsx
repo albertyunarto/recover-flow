@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
+import { ChevronRight, Watch } from "lucide-react";
 import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { signOut } from "@/lib/actions/auth";
 import { SettingsForm } from "@/components/settings/settings-form";
@@ -13,6 +15,20 @@ export default async function SettingsPage() {
   return (
     <div className="space-y-6">
       <h1 className="text-xl font-bold">Settings</h1>
+
+      <Link
+        href="/settings/import"
+        className="flex items-center gap-3 rounded-xl border bg-card p-4 shadow-sm active-scale"
+      >
+        <Watch className="h-4 w-4 text-primary" />
+        <div className="flex-1">
+          <p className="text-sm font-medium">Import Fitbit Data</p>
+          <p className="text-xs text-muted-foreground">
+            Drop your Google Takeout export — sleep, HRV, weight, runs
+          </p>
+        </div>
+        <ChevronRight className="h-4 w-4 text-muted-foreground" />
+      </Link>
 
       <SettingsForm profile={profile} />
 

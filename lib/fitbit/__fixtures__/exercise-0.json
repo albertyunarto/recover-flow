@@ -1,0 +1,40 @@
+[
+  {
+    "logId": 70001,
+    "activityName": "Walk",
+    "activityTypeId": 90013,
+    "averageHeartRate": 104,
+    "calories": 186,
+    "duration": 1500000,
+    "activeDuration": 1440000,
+    "startTime": "07/04/26 08:02:11",
+    "distance": 1.27,
+    "distanceUnit": "Mile",
+    "steps": 2748
+  },
+  {
+    "logId": 70002,
+    "activityName": "Run",
+    "activityTypeId": 90009,
+    "averageHeartRate": 148,
+    "calories": 312,
+    "duration": 1560000,
+    "startTime": "07/06/26 18:31:47",
+    "distance": 2.05,
+    "distanceUnit": "Mile",
+    "steps": 4211
+  },
+  {
+    "logId": 70003,
+    "activityName": "Weights",
+    "activityTypeId": 2050,
+    "averageHeartRate": 96,
+    "calories": 210,
+    "duration": 2400000,
+    "startTime": "07/05/26 07:10:00"
+  },
+  {
+    "logId": null,
+    "activityName": "Bike"
+  }
+]

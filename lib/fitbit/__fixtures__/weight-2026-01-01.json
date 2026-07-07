@@ -1,0 +1,34 @@
+[
+  {
+    "logId": 90001,
+    "weight": 185.2,
+    "bmi": 27.4,
+    "date": "01/01/26",
+    "time": "07:02:11",
+    "source": "Aria"
+  },
+  {
+    "logId": 90002,
+    "weight": 184.5,
+    "bmi": 27.3,
+    "date": "01/01/26",
+    "time": "21:15:40",
+    "source": "Aria"
+  },
+  {
+    "logId": 90003,
+    "weight": 500,
+    "bmi": 74,
+    "date": "01/02/26",
+    "time": "07:05:00",
+    "source": "API"
+  },
+  {
+    "logId": 90004,
+    "weight": 183.9,
+    "bmi": 27.2,
+    "date": "01/03/26",
+    "time": "06:58:30",
+    "source": "Aria"
+  }
+]

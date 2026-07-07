@@ -66,6 +66,7 @@ export interface RunSession {
   cycles_completed: number | null;
   perceived_effort: number | null;
   notes: string | null;
+  source: string;
   created_at: string;
 }
 
@@ -114,7 +115,67 @@ export interface WeightEntry {
   date: string;
   weight_kg: number;
   notes: string | null;
+  source: string;
   created_at: string;
+}
+
+export interface DailyMetrics {
+  id: string;
+  user_id: string;
+  date: string;
+  sleep_minutes: number | null;
+  sleep_efficiency: number | null;
+  sleep_score: number | null;
+  deep_min: number | null;
+  light_min: number | null;
+  rem_min: number | null;
+  awake_min: number | null;
+  resting_hr: number | null;
+  hrv_rmssd: number | null;
+  hr_min: number | null;
+  hr_avg: number | null;
+  azm_total: number | null;
+  steps: number | null;
+  stress_score: number | null;
+  spo2_avg: number | null;
+  skin_temp_deviation: number | null;
+  weight_kg: number | null;
+  source: string;
+  imported_at: string;
+}
+
+export type ReadinessVerdict = "green" | "amber" | "red";
+
+export interface ReadinessComponent {
+  pts: number;
+  max: number;
+}
+
+export interface ReadinessScore {
+  id: string;
+  user_id: string;
+  date: string;
+  score: number;
+  verdict: ReadinessVerdict;
+  components: Record<string, ReadinessComponent>;
+  baseline_snapshot: Record<string, number | null>;
+  created_at: string;
+}
+
+export interface ImportedExercise {
+  id: string;
+  user_id: string;
+  source_log_id: string;
+  started_at: string;
+  activity_type: string;
+  duration_min: number | null;
+  distance_km: number | null;
+  avg_hr: number | null;
+  calories: number | null;
+  linked_run_session_id: string | null;
+  confirmed: boolean;
+  dismissed: boolean;
+  imported_at: string;
 }
 
 export interface HydrationLog {

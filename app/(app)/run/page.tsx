@@ -2,7 +2,15 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { createClient } from "@/lib/supabase/server";
-import { Lock, Play, ChevronRight, CheckCircle2, Circle } from "lucide-react";
+import { getLatestReadiness } from "@/lib/actions/readiness";
+import {
+  Lock,
+  Play,
+  ChevronRight,
+  CheckCircle2,
+  Circle,
+  Activity,
+} from "lucide-react";
 import runScheduleData from "@/lib/data/run-schedule.json";
 import type { RunWeekSchedule, RunSession } from "@/types";
 
@@ -61,14 +69,23 @@ export default async function RunPage() {
   const currentSchedule = schedule.find((s) => s.week === currentWeek);
   const phaseSchedule = schedule.filter((s) => s.phase === currentPhase);
 
-  // Get sessions completed this week
+  // Get sessions completed this week + readiness verdict
   const supabase = await createClient();
-  const { data: thisWeekSessions } = await supabase
-    .from("run_sessions")
-    .select("id, date, planned_format, perceived_effort")
-    .eq("user_id", authUser.id)
-    .eq("week_number", currentWeek)
-    .order("date", { ascending: true });
+  const [{ data: thisWeekSessions }, readinessStatus] = await Promise.all([
+    supabase
+      .from("run_sessions")
+      .select("id, date, planned_format, perceived_effort")
+      .eq("user_id", authUser.id)
+      .eq("week_number", currentWeek)
+      .order("date", { ascending: true }),
+    getLatestReadiness(),
+  ]);
+
+  const freshVerdict =
+    readinessStatus.readiness && (readinessStatus.staleDays ?? 99) <= 2
+      ? readinessStatus.readiness.verdict
+      : null;
+  const previousSchedule = schedule.find((s) => s.week === currentWeek - 1);
 
   const sessionsCompleted = (thisWeekSessions ?? []).length;
   const sessionsTarget = currentSchedule?.sessions_per_week ?? 3;
@@ -85,6 +102,51 @@ export default async function RunPage() {
           <ChevronRight className="w-3.5 h-3.5" />
         </Link>
       </div>
+
+      {/* Readiness-based suggestion (never increases load) */}
+      {freshVerdict === "amber" && previousSchedule && (
+        <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 space-y-2">
+          <div className="flex items-center gap-2">
+            <Activity className="h-4 w-4 text-amber-600" />
+            <span className="text-sm font-semibold text-amber-600">
+              Amber readiness — hold this week
+            </span>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Recovery looks incomplete. Suggestion: repeat last week&apos;s
+            session ({formatRunSchedule(previousSchedule)}) instead of
+            progressing.
+          </p>
+          <Link
+            href={`/run/session?week=${currentWeek - 1}`}
+            className="active-scale inline-flex items-center gap-1.5 rounded-lg bg-amber-500/10 px-3 py-2 text-sm font-semibold text-amber-600"
+          >
+            <Play className="w-4 h-4" />
+            Do Week {currentWeek - 1} session instead
+          </Link>
+        </div>
+      )}
+      {freshVerdict === "red" && (
+        <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-4 space-y-2">
+          <div className="flex items-center gap-2">
+            <Activity className="h-4 w-4 text-destructive" />
+            <span className="text-sm font-semibold text-destructive">
+              Red readiness — back off today
+            </span>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Suggestion: skip the run and do a mobility-only day. There&apos;s
+            more benefit in recovering than pushing through.
+          </p>
+          <Link
+            href="/exercises"
+            className="active-scale inline-flex items-center gap-1.5 rounded-lg bg-destructive/10 px-3 py-2 text-sm font-semibold text-destructive"
+          >
+            Do mobility work instead
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+      )}
 
       {/* Current week card */}
       {currentSchedule ? (
