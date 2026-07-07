@@ -24,15 +24,11 @@ function post(msg: WorkerOutMessage) {
   self.postMessage(msg);
 }
 
-interface FolderState {
-  parser: FitbitFolderParser | null;
-  /** Buffered files for batch parsers; streaming parsers never buffer. */
-  buffered: FileEntry[];
-  files: number;
-}
-
 class ImportRun {
-  private folders = new Map<string, FolderState>();
+  /** Buffered files per batch parser; streaming parsers never buffer. */
+  private buffers = new Map<FitbitFolderParser, FileEntry[]>();
+  private fileCounts = new Map<FitbitFolderParser, number>();
+  private folderProgress = new Map<string, number>();
   private foundFolders = new Set<string>();
   private skipFolders: Set<string>;
   private startedAt = Date.now();
@@ -45,6 +41,12 @@ class ImportRun {
     return this.skipFolders.has(folder);
   }
 
+  /** Mark a folder as present without parsing (skipped/unmatched files). */
+  markFound(path: string) {
+    const folder = fitbitFolderOf(path);
+    if (folder) this.foundFolders.add(folder);
+  }
+
   addFile(path: string, content: string) {
     const folder = fitbitFolderOf(path);
     if (!folder) return;
@@ -53,33 +55,25 @@ class ImportRun {
 
     const name = path.split("/").pop() ?? path;
     const parser = findParser(folder, name);
-    let state = this.folders.get(folder);
-    if (!state) {
-      state = { parser: parser ?? null, buffered: [], files: 0 };
-      this.folders.set(folder, state);
-    }
-    if (!parser) {
-      // Folder seen, no parser matches this file — count it and move on.
-      state.files += 1;
-      return;
-    }
-    state.parser = parser;
-    state.files += 1;
+    if (!parser) return;
+
+    this.fileCounts.set(parser, (this.fileCounts.get(parser) ?? 0) + 1);
+    const done = (this.folderProgress.get(folder) ?? 0) + 1;
+    this.folderProgress.set(folder, done);
 
     const entry: FileEntry = { name, content };
     if (parser.parseFile) {
       // Streaming parser: feed immediately, keep memory flat.
       parser.parseFile(entry);
     } else {
-      state.buffered.push(entry);
+      let buffer = this.buffers.get(parser);
+      if (!buffer) {
+        buffer = [];
+        this.buffers.set(parser, buffer);
+      }
+      buffer.push(entry);
     }
-    post({ type: "progress", folder, filesDone: state.files });
-  }
-
-  /** Mark a folder as present without parsing (used for skipped folders). */
-  markFound(path: string) {
-    const folder = fitbitFolderOf(path);
-    if (folder) this.foundFolders.add(folder);
+    post({ type: "progress", folder, filesDone: done });
   }
 
   async finish(): Promise<ImportWorkerResult> {
@@ -87,26 +81,27 @@ class ImportRun {
     const exercises: ImportedExerciseRow[] = [];
     const folderReports: FolderReport[] = [];
 
-    for (const [folder, state] of this.folders) {
-      if (!state.parser) continue;
-      const parser = state.parser;
+    for (const parser of parsers) {
+      const files = this.fileCounts.get(parser) ?? 0;
+      if (files === 0) continue;
+
       let result: ParseResult;
       try {
         result = parser.finalize
           ? parser.finalize()
-          : await parser.parse(state.buffered);
+          : await parser.parse(this.buffers.get(parser) ?? []);
       } catch {
-        // A parser must never take the import down; report it as fully skipped.
-        result = { partials: [], rowsParsed: 0, rowsSkipped: state.files };
+        // A parser must never take the import down; report it fully skipped.
+        result = { partials: [], rowsParsed: 0, rowsSkipped: files };
       }
-      state.buffered = [];
+      this.buffers.delete(parser);
 
       partialBatches.push(result.partials);
       if (result.exercises) exercises.push(...result.exercises);
       folderReports.push({
-        folder,
+        folder: parser.folder,
         metricLabel: parser.metricLabel,
-        files: state.files,
+        files,
         rowsParsed: result.rowsParsed,
         rowsSkipped: result.rowsSkipped,
         days: new Set(result.partials.map((p) => p.date)).size,
@@ -137,7 +132,7 @@ const decoder = new TextDecoder();
 async function runZip(file: File, skipFolders?: string[]) {
   const run = new ImportRun(skipFolders);
   let streamError: string | null = null;
-  // Chain file parses so a slow batch parser can't interleave with decoding.
+  // Chain per-file handling so decode order stays deterministic.
   let pending = Promise.resolve();
 
   const unzip = new Unzip((zipFile) => {

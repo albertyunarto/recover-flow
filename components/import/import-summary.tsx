@@ -24,9 +24,12 @@ export function ImportSummary({ result }: { result: ImportWorkerResult }) {
       {result.folderReports.length > 0 && (
         <ul className="space-y-1.5">
           {result.folderReports.map((r) => (
-            <li key={r.folder} className="flex items-center gap-2 text-xs">
+            <li
+              key={`${r.folder}/${r.metricLabel}`}
+              className="flex items-center gap-2 text-xs"
+            >
               <Check className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span className="font-medium">{r.folder}</span>
+              <span className="font-medium capitalize">{r.metricLabel}</span>
               <span className="ml-auto text-muted-foreground tabular-nums text-right">
                 {r.days > 0 && <>{r.days} days · </>}
                 {r.rowsParsed} rows

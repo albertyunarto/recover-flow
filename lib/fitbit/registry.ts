@@ -1,4 +1,14 @@
 import type { FitbitFolderParser } from "./types";
+import { sleepParser } from "./parsers/sleep";
+import { sleepScoreParser } from "./parsers/sleep-score";
+import { restingHeartRateParser } from "./parsers/resting-heart-rate";
+import { hrvParser } from "./parsers/hrv";
+import { weightParser } from "./parsers/weight";
+import { stepsParser } from "./parsers/steps";
+import { azmParser } from "./parsers/azm";
+import { stressParser } from "./parsers/stress";
+import { spo2Parser } from "./parsers/spo2";
+import { temperatureParser } from "./parsers/temperature";
 
 /**
  * Folders we know about in a Takeout Fitbit archive, whether or not a parser
@@ -21,7 +31,18 @@ export const KNOWN_FOLDERS = [
  * Registered folder parsers. A missing folder is not an error — every parser
  * is optional and the import succeeds with partial data.
  */
-export const parsers: FitbitFolderParser[] = [];
+export const parsers: FitbitFolderParser[] = [
+  sleepParser,
+  sleepScoreParser,
+  restingHeartRateParser,
+  hrvParser,
+  weightParser,
+  stepsParser,
+  azmParser,
+  stressParser,
+  spo2Parser,
+  temperatureParser,
+];
 
 export function findParser(
   folder: string,
