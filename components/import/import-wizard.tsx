@@ -25,6 +25,7 @@ type WizardState =
 export function ImportWizard() {
   const [state, setState] = useState<WizardState>({ step: "idle" });
   const [progress, setProgress] = useState<Record<string, number>>({});
+  const [skipHeartRate, setSkipHeartRate] = useState(true);
   const [isSaving, startSaving] = useTransition();
   const workerRef = useRef<Worker | null>(null);
 
@@ -75,9 +76,34 @@ export function ImportWizard() {
             </div>
           )}
           <ImportDropzone
-            onZip={(file) => startWorker({ type: "start-zip", file })}
-            onFolder={(files) => startWorker({ type: "start-files", files })}
+            onZip={(file) =>
+              startWorker({
+                type: "start-zip",
+                file,
+                skipFolders: skipHeartRate ? ["Heart Rate"] : [],
+              })
+            }
+            onFolder={(files) =>
+              startWorker({
+                type: "start-files",
+                files,
+                skipFolders: skipHeartRate ? ["Heart Rate"] : [],
+              })
+            }
           />
+          <label className="flex items-start gap-2 text-xs text-muted-foreground px-1">
+            <input
+              type="checkbox"
+              checked={skipHeartRate}
+              onChange={(e) => setSkipHeartRate(e.target.checked)}
+              className="mt-0.5"
+            />
+            <span>
+              Skip the Heart Rate folder (the largest — GBs of second-by-second
+              data). Resting HR and daily min/avg still come from other folders.
+              Untick only if you want intraday min/avg aggregated too.
+            </span>
+          </label>
         </>
       )}
 

@@ -1,0 +1,9 @@
+[
+  { "dateTime": "01/01/26 00:00:05", "value": { "bpm": 58, "confidence": 3 } },
+  { "dateTime": "01/01/26 00:00:10", "value": { "bpm": 57, "confidence": 3 } },
+  { "dateTime": "01/01/26 12:00:00", "value": { "bpm": 92, "confidence": 2 } },
+  { "dateTime": "01/01/26 18:00:00", "value": { "bpm": 71, "confidence": 3 } },
+  { "dateTime": "01/02/26 07:00:00", "value": { "bpm": 60, "confidence": 3 } },
+  { "dateTime": "01/02/26 07:00:05", "value": { "bpm": 0, "confidence": 0 } },
+  { "dateTime": "01/02/26 08:00:00", "value": { "bpm": 80, "confidence": 3 } }
+]

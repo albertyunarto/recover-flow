@@ -11,6 +11,7 @@ import { StreakCard } from "@/components/dashboard/streak-card";
 import { RunCard } from "@/components/dashboard/run-card";
 import { LevelCard } from "@/components/dashboard/level-card";
 import { ReadinessCard } from "@/components/dashboard/readiness-card";
+import { IllnessBanner } from "@/components/dashboard/illness-banner";
 import { getLatestReadiness } from "@/lib/actions/readiness";
 
 export default async function DashboardPage() {
@@ -80,6 +81,10 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-4">
       <GreetingCard name={name} phase={currentPhase} week={currentWeek} />
+
+      {readinessStatus.illness && (
+        <IllnessBanner signal={readinessStatus.illness} />
+      )}
 
       <ReadinessCard status={readinessStatus} />
 

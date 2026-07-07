@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { formatDateSG } from "@/lib/utils";
+import { detectIllness, type IllnessSignal } from "@/lib/readiness/illness";
 import type { ReadinessScore } from "@/types";
 
 export interface ReadinessStatus {
@@ -10,6 +11,8 @@ export interface ReadinessStatus {
   latestMetricsDate: string | null;
   /** Days between today (SGT) and the readiness score's date */
   staleDays: number | null;
+  /** Illness red-flag on the most recent day, if any */
+  illness: IllnessSignal | null;
 }
 
 export async function getLatestReadiness(): Promise<ReadinessStatus> {
@@ -17,7 +20,13 @@ export async function getLatestReadiness(): Promise<ReadinessStatus> {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return { readiness: null, latestMetricsDate: null, staleDays: null };
+  if (!user)
+    return {
+      readiness: null,
+      latestMetricsDate: null,
+      staleDays: null,
+      illness: null,
+    };
 
   const [{ data: scores }, { data: metrics }] = await Promise.all([
     supabase
@@ -26,16 +35,22 @@ export async function getLatestReadiness(): Promise<ReadinessStatus> {
       .eq("user_id", user.id)
       .order("date", { ascending: false })
       .limit(1),
+    // Enough recent history for a 30-day RHR baseline + the flag check.
     supabase
       .from("daily_metrics")
-      .select("date")
+      .select("date, resting_hr, skin_temp_deviation")
       .eq("user_id", user.id)
       .order("date", { ascending: false })
-      .limit(1),
+      .limit(45),
   ]);
 
   const readiness = (scores?.[0] as ReadinessScore | undefined) ?? null;
-  const latestMetricsDate = metrics?.[0]?.date ?? null;
+  const metricRows = (metrics ?? []) as {
+    date: string;
+    resting_hr: number | null;
+    skin_temp_deviation: number | null;
+  }[];
+  const latestMetricsDate = metricRows[0]?.date ?? null;
 
   let staleDays: number | null = null;
   if (readiness) {
@@ -44,5 +59,8 @@ export async function getLatestReadiness(): Promise<ReadinessStatus> {
     staleDays = Math.max(0, Math.round((today - scoreDay) / 86_400_000));
   }
 
-  return { readiness, latestMetricsDate, staleDays };
+  // detectIllness expects ascending history.
+  const illness = detectIllness([...metricRows].reverse());
+
+  return { readiness, latestMetricsDate, staleDays, illness };
 }

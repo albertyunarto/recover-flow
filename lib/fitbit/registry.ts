@@ -10,6 +10,7 @@ import { stressParser } from "./parsers/stress";
 import { spo2Parser } from "./parsers/spo2";
 import { temperatureParser } from "./parsers/temperature";
 import { exerciseParser } from "./parsers/exercise";
+import { heartRateParser } from "./parsers/heart-rate";
 
 /**
  * Folders we know about in a Takeout Fitbit archive, whether or not a parser
@@ -44,6 +45,9 @@ export const parsers: FitbitFolderParser[] = [
   spo2Parser,
   temperatureParser,
   exerciseParser,
+  // Heart Rate is the largest folder (~17k samples/day). Streaming keeps
+  // memory flat; listing it last also means it parses after everything else.
+  heartRateParser,
 ];
 
 export function findParser(
