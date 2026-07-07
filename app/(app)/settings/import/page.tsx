@@ -1,10 +1,17 @@
 import { redirect } from "next/navigation";
-import { getAuthUser } from "@/lib/supabase/auth";
+import { getAuthUser, getUserProfile } from "@/lib/supabase/auth";
 import { ImportWizard } from "@/components/import/import-wizard";
+import { ExerciseReconcileList } from "@/components/import/exercise-reconcile-list";
+import { getReconcileCandidates } from "@/lib/actions/imported-exercises";
 
 export default async function ImportPage() {
   const authUser = await getAuthUser();
   if (!authUser) redirect("/login");
+
+  const profile = await getUserProfile();
+  const currentWeek = profile?.current_week ?? 1;
+  const currentPhase = profile?.current_phase ?? 1;
+  const candidates = await getReconcileCandidates(currentWeek);
 
   return (
     <div className="space-y-4">
@@ -25,6 +32,10 @@ export default async function ImportPage() {
         </p>
       </div>
       <ImportWizard />
+      <ExerciseReconcileList
+        candidates={candidates}
+        currentPhase={currentPhase}
+      />
     </div>
   );
 }

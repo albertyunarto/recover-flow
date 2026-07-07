@@ -9,6 +9,7 @@ import { azmParser } from "./parsers/azm";
 import { stressParser } from "./parsers/stress";
 import { spo2Parser } from "./parsers/spo2";
 import { temperatureParser } from "./parsers/temperature";
+import { exerciseParser } from "./parsers/exercise";
 
 /**
  * Folders we know about in a Takeout Fitbit archive, whether or not a parser
@@ -42,6 +43,7 @@ export const parsers: FitbitFolderParser[] = [
   stressParser,
   spo2Parser,
   temperatureParser,
+  exerciseParser,
 ];
 
 export function findParser(

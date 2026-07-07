@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { Activity, ChevronRight } from "lucide-react";
 import { getPainTrends } from "@/lib/actions/pain";
 import { PainTrendChart } from "@/components/charts/pain-trend-chart";
 
@@ -19,6 +21,20 @@ export default async function PainTrendsPage() {
       </div>
 
       <PainTrendChart initialEntries={entries} />
+
+      <Link
+        href="/insights"
+        className="flex items-center gap-3 rounded-xl border bg-card p-4 shadow-sm active-scale"
+      >
+        <Activity className="h-4 w-4 text-primary" />
+        <div className="flex-1">
+          <p className="text-sm font-medium">Recovery Insights</p>
+          <p className="text-xs text-muted-foreground">
+            See how sleep, HR, and load line up with your pain
+          </p>
+        </div>
+        <ChevronRight className="h-4 w-4 text-muted-foreground" />
+      </Link>
     </div>
   );
 }
